@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router";
 import styled from "styled-components";
+import { MenuIcon } from "../ui/svgs";
 
 const HeaderWrapper = styled.div`
     border: 1px solid black;
@@ -24,6 +25,19 @@ const HeaderContainer = styled.header`
 const NavWrapper = styled.nav`
     display: flex;
     gap: 20px;
+
+    @media (max-width: 480px) {
+        display: none;
+    }
+`;
+
+const MenuButton = styled.div`
+    display: none;
+
+    @media (max-width: 480px) {
+        display: block;
+        width: 32px;
+    }
 `;
 
 export const Header = ({ navLinks }) => {
@@ -38,6 +52,9 @@ export const Header = ({ navLinks }) => {
                         </NavLink>
                     ))}
                 </NavWrapper>
+                <MenuButton>
+                    <MenuIcon />
+                </MenuButton>
             </HeaderContainer>
         </HeaderWrapper>
     );
