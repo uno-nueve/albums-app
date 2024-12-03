@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import styled from "styled-components";
 
 const HeaderWrapper = styled.header`
@@ -6,8 +6,10 @@ const HeaderWrapper = styled.header`
     background-color: white;
     color: black;
     padding: 18px 40px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;
 
 const NavWrapper = styled.nav`
@@ -15,14 +17,16 @@ const NavWrapper = styled.nav`
     gap: 20px;
 `;
 
-export const Header = () => {
+export const Header = ({ navLinks }) => {
     return (
         <HeaderWrapper>
-            <div>LOGO</div>
+            <Link to="/">LOGO</Link>
             <NavWrapper>
-                <NavLink to="/catalog">Catálogo</NavLink>
-                <NavLink to="/returns">Devoluciones</NavLink>
-                <NavLink to="/about-us">Sobre Nosotros</NavLink>
+                {navLinks?.map(({ label, to }) => (
+                    <NavLink key={to} to={to}>
+                        {label}
+                    </NavLink>
+                ))}
             </NavWrapper>
         </HeaderWrapper>
     );
