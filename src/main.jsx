@@ -3,14 +3,14 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
 import App from "./App.jsx";
-import { Login } from "./routes/Login.jsx";
-import { Dashboard } from "./routes/Dashboard.jsx";
-import { Catalog } from "./routes/Catalog.jsx";
-import { Orders } from "./routes/Orders.jsx";
-import { Store } from "./routes/Store.jsx";
-import { Returns } from "./routes/Returns.jsx";
-import { Home } from "./routes/Home.jsx";
-import { Logout } from "./routes/Logout.jsx";
+import { Login } from "./pages/Login.jsx";
+import { Dashboard } from "./pages/Dashboard.jsx";
+import { Catalog } from "./pages/Catalog.jsx";
+import { Orders } from "./pages/Orders.jsx";
+import { Store } from "./pages/Store.jsx";
+import { Returns } from "./pages/Returns.jsx";
+import { Home } from "./pages/Home.jsx";
+import { Logout } from "./pages/Logout.jsx";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
