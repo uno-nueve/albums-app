@@ -1,14 +1,28 @@
-import { NavLink, Outlet } from "react-router";
-import { Header } from "../components/common/Header";
+import { NavLink, Outlet, useNavigate } from "react-router";
 import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+import { Avatar, AvatarContainer, ProfileWrapper } from "../components/ui/Profile.js";
 
 export const Dashboard = () => {
+    const navigate = useNavigate();
+    const user = useContext(UserContext);
+
+    if (!user) {
+        return navigate("/login");
+    }
+
     return (
         <>
-            <Header />
             <GridColsWrapper cols="1fr 3fr">
                 <GridCol>
+                    <ProfileWrapper>
+                        <AvatarContainer>
+                            <Avatar src={user.avatar} alt={user.username} />
+                        </AvatarContainer>
+                        <p>{user.username}</p>
+                    </ProfileWrapper>
                     <NavLink to="/dashboard/catalog">Catálogo</NavLink>
                     <NavLink to="/dashboard/orders">Ordenes</NavLink>
                 </GridCol>
