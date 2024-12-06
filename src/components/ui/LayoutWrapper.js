@@ -6,7 +6,6 @@ const LayoutWrapper = styled.main`
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: tomato;
 `;
 
 export default LayoutWrapper;

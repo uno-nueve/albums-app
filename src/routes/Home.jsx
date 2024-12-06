@@ -4,6 +4,8 @@ import GridCol from "../components/ui/GridCol";
 import Button from "../components/ui/Button";
 import { Link } from "react-router";
 import { ArrowNarrowRight } from "../components/ui/svgs";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const InlineButton = styled(Button)`
     max-width: 320px;
@@ -54,6 +56,8 @@ const BgImage = styled.img`
 `;
 
 export const Home = () => {
+    const user = useContext(UserContext);
+
     return (
         <>
             <GridLayout cols="repeat(2, minmax(0, 1fr))">
@@ -65,14 +69,25 @@ export const Home = () => {
                 </ImageCol>
                 <DisplayCol>
                     <h1>Hola Mundo</h1>
-                    <StyledLink to="/albums">
-                        <InlineButton>
-                            Comprar
-                            <ButtonIcon>
-                                <ArrowNarrowRight />
-                            </ButtonIcon>
-                        </InlineButton>
-                    </StyledLink>
+                    {user ? (
+                        <StyledLink to="/dashboard">
+                            <InlineButton>
+                                Dashboard
+                                <ButtonIcon>
+                                    <ArrowNarrowRight />
+                                </ButtonIcon>
+                            </InlineButton>
+                        </StyledLink>
+                    ) : (
+                        <StyledLink to="/albums">
+                            <InlineButton>
+                                Comprar
+                                <ButtonIcon>
+                                    <ArrowNarrowRight />
+                                </ButtonIcon>
+                            </InlineButton>
+                        </StyledLink>
+                    )}
                 </DisplayCol>
             </GridLayout>
         </>

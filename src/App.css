@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 :root {
     --dm-sans: DM Sans;
+    --varela-round: Varela Round;
 }
 
 * {
@@ -11,12 +13,12 @@
 }
 
 body {
-    font-family: var(--dm-sans);
+    font-family: var(--varela-round);
 }
 
 button,
 input {
-    font-family: var(--dm-sans);
+    font-family: var(--varela-round);
 }
 
 a {
