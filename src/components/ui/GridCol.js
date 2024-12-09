@@ -7,6 +7,8 @@ const GridCol = styled.div`
     gap: 20px;
     width: 100%;
     padding: 20px;
+    position: relative;
+    overflow: hidden;
 `;
 
 export default GridCol;
