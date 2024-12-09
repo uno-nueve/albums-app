@@ -4,6 +4,13 @@ import { Header } from "./components/common/Header";
 import { UserContext } from "./contexts/UserContext";
 import { useEffect, useState } from "react";
 
+export const baseUrl = import.meta.env.VITE_BASE_URL;
+export const albums = import.meta.env.VITE_ALBUMS;
+export const sales = import.meta.env.VITE_SALES;
+export const searchAlbum = import.meta.env.VITE_SEARCH;
+export const buyAlbum = import.meta.env.VITE_BUY;
+export const returnAlbum = import.meta.env.VITE_RETURN;
+
 function App() {
     const [user, setUser] = useState(undefined);
 
