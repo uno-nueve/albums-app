@@ -7,33 +7,6 @@ import { Avatar, AvatarContainer, ProfileWrapper } from "../components/ui/Profil
 import Button from "../components/ui/Button.js";
 import { Modal } from "../components/common/Modal";
 import { ModalContext } from "../contexts/ModalContext.js";
-import FormWrapper from "../components/ui/FormWrapper.js";
-import Input from "../components/ui/Input";
-import Select from "../components/ui/Select";
-import styled from "styled-components";
-import InputGroup from "../components/ui/InputGroup.js";
-import { XClose } from "../components/ui/svgs";
-
-const FormContainer = styled(FormWrapper)`
-    min-width: 100%;
-    height: 100%;
-    padding: 0;
-    border: none;
-`;
-
-const IconContainer = styled.div`
-    width: 20px;
-    heigth: 100%;
-    display: flex;
-    align-items: center;
-`;
-
-const ModalButton = styled(Button)`
-    position: absolute;
-    width: 40px;
-    left: 20px;
-    top: 20px;
-`;
 
 export const Dashboard = () => {
     const [showModal, setShowModal] = useState(false);
@@ -45,7 +18,7 @@ export const Dashboard = () => {
     }
 
     return (
-        <ModalContext.Provider value={showModal}>
+        <ModalContext.Provider value={{ showModal, setShowModal }}>
             <GridColsWrapper cols="1fr 3fr">
                 <GridCol>
                     <ProfileWrapper>
@@ -70,42 +43,7 @@ export const Dashboard = () => {
                 </GridCol>
                 <GridCol>
                     <Outlet />
-                    <Modal>
-                        <FormContainer>
-                            <h3>Nuevo Album</h3>
-                            <InputGroup>
-                                <label htmlFor="titulo">
-                                    Título
-                                    <Input id="title" name="title" />
-                                </label>
-                                <label htmlFor="artista">
-                                    Artista
-                                    <Input id="artista" name="artist" />
-                                </label>
-                                <label htmlFor="genero">
-                                    Género
-                                    <Select>
-                                        <option value="" hidden></option>
-                                        <option value="rap">Rap</option>
-                                        <option value="rock">Rock</option>
-                                        <option value="pop">Pop</option>
-                                        <option value="r&b">R&B</option>
-                                        <option value="tango">Tango</option>
-                                    </Select>
-                                </label>
-                                <label htmlFor="stock">
-                                    Stock
-                                    <Input id="stock" name="stock" type="number" />
-                                </label>
-                            </InputGroup>
-                            <Button>Añadir</Button>
-                        </FormContainer>
-                        <ModalButton onClick={() => setShowModal(false)}>
-                            <IconContainer>
-                                <XClose />
-                            </IconContainer>
-                        </ModalButton>
-                    </Modal>
+                    <Modal />
                 </GridCol>
             </GridColsWrapper>
         </ModalContext.Provider>
