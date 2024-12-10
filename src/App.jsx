@@ -16,6 +16,8 @@ function App() {
 
     useEffect(() => {
         const session = localStorage.getItem("session");
+        console.log("There is a session", JSON.parse(session));
+
         if (!session) {
             console.error("Session not found");
         }

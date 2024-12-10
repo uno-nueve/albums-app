@@ -38,7 +38,7 @@ const ModalButton = styled(Button)`
 export const Dashboard = () => {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
-    const user = useContext(UserContext);
+    const user = useContext(UserContext) || localStorage.getItem("session");
 
     if (!user) {
         return navigate("/login");
