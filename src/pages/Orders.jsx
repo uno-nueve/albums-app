@@ -1,18 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { baseUrl, sales } from "../App";
+import { BASE_URL, SALES } from "../utils/urls";
 
 export const Orders = () => {
     const [error, setError] = useState();
     const [isLoading, setisLoading] = useState(false);
     const [data, setData] = useState([]);
-    console.log(data);
 
     const getSales = async () => {
         setisLoading(true);
 
         try {
-            const res = await axios.get(`${baseUrl}${sales}`);
+            const res = await axios.get(`${BASE_URL}${SALES}`);
             setData(res.data);
             // return res.data;
         } catch (e) {
