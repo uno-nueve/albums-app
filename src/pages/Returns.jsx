@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
-import { Searchbar } from "../components/common/Searchbar";
+import { Searchbar } from "../components/common/SearchBar";
 
 const ImageCol = styled(GridCol)`
     padding: 0;
