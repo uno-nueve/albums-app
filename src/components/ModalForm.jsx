@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import Button from "../ui/Button";
-import Input from "../ui/Input";
-import InputGroup from "../ui/InputGroup";
-import Select from "../ui/Select";
-import FormWrapper from "../ui/FormWrapper";
-import { useState } from "react";
+import Button from "./ui/Button";
+import Input from "./ui/Input";
+import InputGroup from "./ui/InputGroup";
+import Select from "./ui/Select";
+import FormWrapper from "./ui/FormWrapper";
 import axios from "axios";
-import { ALBUMS, BASE_URL } from "../../utils/urls";
+import { ALBUMS, BASE_URL } from "../utils/urls";
+import { useForm } from "../hooks/useForm";
+import { useAxios } from "../hooks/useAxios";
 
 const FormContainer = styled(FormWrapper)`
     min-width: 100%;
@@ -16,8 +17,7 @@ const FormContainer = styled(FormWrapper)`
 `;
 
 export const ModalForm = () => {
-    const [error, setError] = useState("");
-    const [formData, setFormData] = useState({
+    const initialForm = {
         titulo: "",
         artista: "",
         genero: "",
@@ -29,49 +29,22 @@ export const ModalForm = () => {
                 width: 0,
             },
         ],
-    });
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            axios.post(`${BASE_URL}${ALBUMS}`, formData);
-        } catch (e) {
-            console.log(e);
-            setError(e);
-        } finally {
-            setFormData({
-                titulo: "",
-                artista: "",
-                genero: "",
-                stock: "",
-                images: [
-                    {
-                        url: "",
-                        height: 0,
-                        width: 0,
-                    },
-                ],
-            });
-        }
     };
 
-    const handleChange = (e) => {
-        const { name, value } = e.currentTarget;
-        if (name === "url") {
-            setFormData({
-                ...formData,
-                images: [{ url: value, height: 600, width: 600 }],
-            });
-        } else {
-            setFormData({ ...formData, [name]: value });
-        }
+    const { formData, handleChange, setFormData } = useForm(initialForm);
+    const { handleSubmit, error } = useAxios();
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        handleSubmit(axios.post(`${BASE_URL}${ALBUMS}`, formData));
+        setFormData(initialForm);
     };
 
     return (
         <>
             <FormContainer>
                 <h3>Nuevo Album</h3>
-                {error && <p>Something went wrong ☹️</p>}
+                {error && <p>{error}</p>}
                 <InputGroup>
                     <label htmlFor="titulo">
                         Título
@@ -101,7 +74,7 @@ export const ModalForm = () => {
                         <Input id="url" name="url" onChange={handleChange} />
                     </label>
                 </InputGroup>
-                <Button onClick={handleSubmit}>Añadir</Button>
+                <Button onClick={onSubmit}>Añadir</Button>
             </FormContainer>
         </>
     );
