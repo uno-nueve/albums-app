@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ModalContext } from "../../contexts/ModalContext";
 import Button from "../ui/Button";
 import { XClose } from "../ui/svgs";
-import { ModalForm } from "../ModalForm";
+import { NewAlbumForm } from "../ModalForm";
 
 export const ModalWrapper = styled.div`
     height: 100%;
@@ -19,6 +19,7 @@ export const ModalWrapper = styled.div`
     right: ${(props) => (props.showmodal ? "0" : "-33.4%")};
     z-index: 10;
     transition: 0.3s;
+    background-color: white;
 `;
 
 const IconContainer = styled.div`
@@ -35,11 +36,11 @@ const ModalButton = styled(Button)`
     top: 20px;
 `;
 
-export const Modal = () => {
+export const SideModal = () => {
     const { showModal, setShowModal } = useContext(ModalContext);
     return (
         <ModalWrapper showmodal={showModal}>
-            <ModalForm />
+            <NewAlbumForm />
             <ModalButton onClick={() => setShowModal(false)}>
                 <IconContainer>
                     <XClose />

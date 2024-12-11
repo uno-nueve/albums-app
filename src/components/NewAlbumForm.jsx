@@ -8,6 +8,10 @@ import axios from "axios";
 import { ALBUMS, BASE_URL } from "../utils/urls";
 import { useForm } from "../hooks/useForm";
 import { useAxios } from "../hooks/useAxios";
+import { useDispatch } from "react-redux";
+import { addAlbum } from "../state/albums/albumsSlice";
+import { useContext } from "react";
+import { ModalContext } from "../contexts/ModalContext";
 
 const FormContainer = styled(FormWrapper)`
     min-width: 100%;
@@ -16,7 +20,7 @@ const FormContainer = styled(FormWrapper)`
     border: none;
 `;
 
-export const ModalForm = () => {
+export const NewAlbumForm = () => {
     const initialForm = {
         titulo: "",
         artista: "",
@@ -33,10 +37,15 @@ export const ModalForm = () => {
 
     const { formData, handleChange, setFormData } = useForm(initialForm);
     const { handleSubmit, error } = useAxios();
+    const { setShowModal } = useContext(ModalContext);
+
+    const dispatch = useDispatch();
 
     const onSubmit = (e) => {
         e.preventDefault();
         handleSubmit(axios.post(`${BASE_URL}${ALBUMS}`, formData));
+        dispatch(addAlbum(formData));
+        setTimeout(() => setShowModal(false), 300);
         setFormData(initialForm);
     };
 
