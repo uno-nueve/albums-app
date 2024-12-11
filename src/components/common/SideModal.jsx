@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ModalContext } from "../../contexts/ModalContext";
 import Button from "../ui/Button";
 import { XClose } from "../ui/svgs";
-import { NewAlbumForm } from "../ModalForm";
+import { NewAlbumForm } from "../NewAlbumForm";
 
 export const ModalWrapper = styled.div`
     height: 100%;
