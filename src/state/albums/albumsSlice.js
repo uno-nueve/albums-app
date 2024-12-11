@@ -7,8 +7,11 @@ const albumsSclice = createSlice({
         indexAlbums: (state, action) => {
             return (state = action.payload);
         },
+        addAlbum: (state, action) => {
+            state.push(action.payload);
+        },
     },
 });
 
-export const { indexAlbums } = albumsSclice.actions;
+export const { indexAlbums, addAlbum } = albumsSclice.actions;
 export default albumsSclice.reducer;

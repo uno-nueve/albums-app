@@ -17,7 +17,6 @@ export const Catalog = () => {
     const [isLoading, setisLoading] = useState(false);
     const dispatch = useDispatch();
     const data = useSelector((state) => state.albums);
-    console.log(data);
 
     const getAlbums = async () => {
         setisLoading(true);
