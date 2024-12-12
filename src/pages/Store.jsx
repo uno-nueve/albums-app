@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import { CartContext } from "../contexts/CartContext";
-import { SideModal } from "../components/common/SideModal";
+import { CartModal } from "../components/common/CartModal";
 import { useState } from "react";
 
 export const Store = () => {
@@ -14,7 +14,7 @@ export const Store = () => {
                 <GridCol>filtros</GridCol>
                 <GridCol>
                     <Outlet />
-                    <SideModal />
+                    <CartModal />
                 </GridCol>
             </GridColsWrapper>
         </CartContext.Provider>

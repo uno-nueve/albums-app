@@ -45,8 +45,8 @@ const StyledLink = styled(Link)`
     align-items: center;
 `;
 
-export const SideModal = () => {
-    const data = useSelector((state) => state.cart);
+export const CartModal = () => {
+    const data = useSelector((state) => state.cart.items);
     const { showModal, setShowModal } = useContext(CartContext);
     const dispatch = useDispatch();
     console.log("cart", data);
@@ -54,7 +54,7 @@ export const SideModal = () => {
     return (
         <ModalWrapper showmodal={showModal}>
             <h3>Carrito</h3>
-            {!data.length ? (
+            {data === undefined || data.length === 0 ? (
                 <div>No tienes items en tu carrito</div>
             ) : (
                 <>

@@ -13,8 +13,9 @@ import { Home } from "./pages/Home.jsx";
 import { Logout } from "./pages/Logout.jsx";
 import { ErrorPage } from "./pages/ErrorPage.jsx";
 import { Provider } from "react-redux";
-import { store } from "./state/store.js";
+import { persistor, store } from "./state/store.js";
 import { Checkout } from "./pages/Checkout.jsx";
+import { PersistGate } from "redux-persist/integration/react";
 
 const router = createBrowserRouter([
     {
@@ -77,7 +78,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <Provider store={store}>
-            <RouterProvider router={router} />
+            <PersistGate loading={null} persistor={persistor}>
+                <RouterProvider router={router} />
+            </PersistGate>
         </Provider>
     </StrictMode>
 );
