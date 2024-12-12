@@ -10,6 +10,7 @@ import { BASE_URL, ALBUMS } from "../utils/urls";
 const GridLayout = styled(GridColsWrapper)`
     min-height: calc(100% - 40px);
     gap: 20px;
+    grid-auto-rows: min-content;
 `;
 
 export const Catalog = () => {

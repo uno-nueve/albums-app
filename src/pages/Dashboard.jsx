@@ -7,6 +7,7 @@ import { Avatar, AvatarContainer, ProfileWrapper } from "../components/ui/Profil
 import Button from "../components/ui/Button.js";
 import { SideModal } from "../components/common/SideModal";
 import { ModalContext } from "../contexts/ModalContext.js";
+import { Modal } from "../components/common/Modal.jsx";
 
 export const Dashboard = () => {
     const [showModal, setShowModal] = useState(false);
@@ -43,7 +44,8 @@ export const Dashboard = () => {
                 </GridCol>
                 <GridCol>
                     <Outlet />
-                    <SideModal />
+                    {/* <SideModal /> */}
+                    <Modal />
                 </GridCol>
             </GridColsWrapper>
         </ModalContext.Provider>
