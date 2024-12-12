@@ -3,7 +3,7 @@ import { useState } from "react";
 export const useAxios = () => {
     const [error, setError] = useState("");
 
-    const handleSubmit = async (axiosMethod) => {
+    const handleAxios = async (axiosMethod) => {
         try {
             () => axiosMethod();
         } catch (e) {
@@ -12,5 +12,5 @@ export const useAxios = () => {
         }
     };
 
-    return { handleSubmit, error };
+    return { handleAxios, error };
 };
