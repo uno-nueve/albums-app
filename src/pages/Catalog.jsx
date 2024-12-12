@@ -53,14 +53,8 @@ export const Catalog = () => {
 
     return (
         <GridLayout cols="repeat(4, minmax(0, 1fr))">
-            {data.map(({ _id, titulo, artista, images }) => (
-                <AlbumCard
-                    key={_id}
-                    titulo={titulo}
-                    artista={artista}
-                    imagen={images[0]}
-                    id={_id}
-                />
+            {data.map((album) => (
+                <AlbumCard key={album._id} album={album} />
             ))}
         </GridLayout>
     );

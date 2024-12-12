@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { ModalContext } from "../../contexts/ModalContext";
 import Button from "../ui/Button";
 import { XClose } from "../ui/svgs";
-import { NewAlbumForm } from "../NewAlbumForm";
+import { CartContext } from "../../contexts/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../state/cart/cartSlice";
+import { Link } from "react-router";
 
-export const ModalWrapper = styled.div`
+export const ModalWrapper = styled.aside`
     height: 100%;
     width: 33.4%;
     padding: 40px 20px;
@@ -36,11 +38,37 @@ const ModalButton = styled(Button)`
     top: 20px;
 `;
 
+const StyledLink = styled(Link)`
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+`;
+
 export const SideModal = () => {
-    const { showModal, setShowModal } = useContext(ModalContext);
+    const data = useSelector((state) => state.cart);
+    const { showModal, setShowModal } = useContext(CartContext);
+    const dispatch = useDispatch();
+    console.log("cart", data);
+
     return (
         <ModalWrapper showmodal={showModal}>
-            <NewAlbumForm />
+            <h3>Carrito</h3>
+            {!data.length ? (
+                <div>No tienes items en tu carrito</div>
+            ) : (
+                <>
+                    {data.map((album) => (
+                        <div key={album._id}>
+                            <span>{album.titulo}</span>
+                            <button onClick={() => dispatch(removeFromCart(album._id))}>X</button>
+                        </div>
+                    ))}
+                </>
+            )}
+            <StyledLink to={"/checkout"}>
+                <Button>Finalizar compra</Button>
+            </StyledLink>
             <ModalButton onClick={() => setShowModal(false)}>
                 <IconContainer>
                     <XClose />

@@ -5,7 +5,6 @@ import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { Avatar, AvatarContainer, ProfileWrapper } from "../components/ui/Profile.js";
 import Button from "../components/ui/Button.js";
-import { SideModal } from "../components/common/SideModal";
 import { ModalContext } from "../contexts/ModalContext.js";
 import { Modal } from "../components/common/Modal.jsx";
 
@@ -44,7 +43,6 @@ export const Dashboard = () => {
                 </GridCol>
                 <GridCol>
                     <Outlet />
-                    {/* <SideModal /> */}
                     <Modal />
                 </GridCol>
             </GridColsWrapper>
