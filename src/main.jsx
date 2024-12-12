@@ -14,6 +14,7 @@ import { Logout } from "./pages/Logout.jsx";
 import { ErrorPage } from "./pages/ErrorPage.jsx";
 import { Provider } from "react-redux";
 import { store } from "./state/store.js";
+import { Checkout } from "./pages/Checkout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
                         element: <Orders />,
                     },
                 ],
+            },
+            {
+                path: "checkout",
+                element: <Checkout />,
             },
         ],
     },
