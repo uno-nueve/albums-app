@@ -5,7 +5,8 @@ export const useAxios = () => {
 
     const handleAxios = async (axiosMethod) => {
         try {
-            () => axiosMethod();
+            const res = await axiosMethod();
+            return res.data;
         } catch (e) {
             console.log(e);
             setError("Error enviando formulario");
