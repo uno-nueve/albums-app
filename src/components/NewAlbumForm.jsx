@@ -41,9 +41,9 @@ export const NewAlbumForm = () => {
 
     const dispatch = useDispatch();
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        handleAxios(axios.post(`${BASE_URL}${ALBUMS}`, formData));
+        await handleAxios(() => axios.post(`${BASE_URL}${ALBUMS}`, formData));
         dispatch(addAlbum(formData));
         setTimeout(() => setShowModal(false), 300);
         setFormData(initialForm);

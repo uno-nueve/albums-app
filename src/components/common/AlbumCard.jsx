@@ -7,7 +7,7 @@ import { CartContext } from "../../contexts/CartContext";
 
 export const AlbumCard = ({ album }) => {
     const { titulo, artista, images } = album;
-    const { setShowModal } = useContext(CartContext);
+    const { setShowModal } = useContext(CartContext) || {};
     const location = useLocation();
     const dispatch = useDispatch();
 
