@@ -4,6 +4,7 @@ import GridColsWrapper from "../components/ui/GridColWrapper";
 import { CartContext } from "../contexts/CartContext";
 import { CartModal } from "../components/common/CartModal";
 import { useState } from "react";
+import { Filters } from "../components/Filters";
 
 export const Store = () => {
     const [showModal, setShowModal] = useState(false);
@@ -11,7 +12,9 @@ export const Store = () => {
     return (
         <CartContext.Provider value={{ showModal, setShowModal }}>
             <GridColsWrapper cols="1fr 3fr">
-                <GridCol>filtros</GridCol>
+                <GridCol>
+                    <Filters />
+                </GridCol>
                 <GridCol>
                     <Outlet />
                     <CartModal />
