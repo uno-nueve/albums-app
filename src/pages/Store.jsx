@@ -5,6 +5,12 @@ import { CartContext } from "../contexts/CartContext";
 import { CartModal } from "../components/common/CartModal";
 import { useState } from "react";
 import { Filters } from "../components/Filters";
+import styled from "styled-components";
+
+const ScrollCol = styled(GridCol)`
+    overflow-y: scroll;
+    height: calc(100vh - 80px);
+`;
 
 export const Store = () => {
     const [showModal, setShowModal] = useState(false);
@@ -15,10 +21,11 @@ export const Store = () => {
                 <GridCol>
                     <Filters />
                 </GridCol>
-                <GridCol>
+                <ScrollCol>
+                    <h1>Albums</h1>
                     <Outlet />
-                    <CartModal />
-                </GridCol>
+                </ScrollCol>
+                <CartModal />
             </GridColsWrapper>
         </CartContext.Provider>
     );

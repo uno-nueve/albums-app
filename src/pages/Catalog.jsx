@@ -8,9 +8,7 @@ import styled from "styled-components";
 import { ALBUMS } from "../utils/urls";
 
 const GridLayout = styled(GridColsWrapper)`
-    min-height: calc(100% - 40px);
-    gap: 20px;
-    grid-auto-rows: min-content;
+    gap: 16px;
 `;
 
 export const Catalog = () => {
