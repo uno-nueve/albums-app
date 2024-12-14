@@ -5,6 +5,7 @@ import { CartContext } from "../contexts/CartContext";
 import { CartModal } from "../components/common/CartModal";
 import { useState } from "react";
 import { Filters } from "../components/Filters";
+import { useTitle } from "../hooks/useTitle";
 import styled from "styled-components";
 
 const ScrollCol = styled(GridCol)`
@@ -13,6 +14,7 @@ const ScrollCol = styled(GridCol)`
 `;
 
 export const Store = () => {
+    useTitle("Albums");
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -22,7 +24,6 @@ export const Store = () => {
                     <Filters />
                 </GridCol>
                 <ScrollCol>
-                    <h1>Albums</h1>
                     <Outlet />
                 </ScrollCol>
                 <CartModal />

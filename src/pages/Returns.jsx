@@ -2,6 +2,8 @@ import styled from "styled-components";
 import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import { Searchbar } from "../components/common/SearchBar";
+import { FlexContainer } from "../components/ui/FlexContainer";
+import { useTitle } from "../hooks/useTitle";
 
 const ImageCol = styled(GridCol)`
     padding: 0;
@@ -18,10 +20,12 @@ const BgImage = styled.img`
 `;
 
 export const Returns = () => {
+    useTitle("Devoluciones");
     return (
-        <>
+        <FlexContainer height="calc(100vh - 80px)">
             <GridColsWrapper cols="repeat(2, minmax(0, 1fr))">
                 <GridCol>
+                    <h1>Devoluciones</h1>
                     <Searchbar />
                 </GridCol>
                 <ImageCol>
@@ -31,6 +35,6 @@ export const Returns = () => {
                     />
                 </ImageCol>
             </GridColsWrapper>
-        </>
+        </FlexContainer>
     );
 };

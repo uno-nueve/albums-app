@@ -6,6 +6,8 @@ import { Link } from "react-router";
 import { ArrowNarrowRight } from "../components/ui/svgs";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { FlexContainer } from "../components/ui/FlexContainer";
+import { useTitle } from "../hooks/useTitle";
 
 const InlineButton = styled(Button)`
     max-width: 320px;
@@ -57,9 +59,9 @@ const BgImage = styled.img`
 
 export const Home = () => {
     const user = useContext(UserContext);
-
+    useTitle("Viniltory");
     return (
-        <>
+        <FlexContainer height="calc(100vh - 80px)">
             <GridLayout cols="repeat(2, minmax(0, 1fr))">
                 <ImageCol>
                     <BgImage
@@ -90,6 +92,6 @@ export const Home = () => {
                     )}
                 </DisplayCol>
             </GridLayout>
-        </>
+        </FlexContainer>
     );
 };
