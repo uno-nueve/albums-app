@@ -7,4 +7,5 @@ export const FlexContainer = styled.div`
     justify-content: ${(props) => props.justifyContent && props.justifyContent};
     gap: ${(props) => props.gap && props.gap};
     padding: ${(props) => props.padding && props.padding};
+    height: ${(props) => props.height && props.height};
 `;

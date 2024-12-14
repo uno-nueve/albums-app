@@ -6,7 +6,10 @@ import styled from "styled-components";
 import Button from "./ui/Button";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
-import { SEARCH_ALBUM } from "../utils/urls";
+import { ALBUMS, SEARCH_ALBUM } from "../utils/urls";
+import { useDispatch } from "react-redux";
+import { indexAlbums } from "../state/albums/albumsSlice";
+import { ErrorText } from "./ui/Text";
 
 const FormLayout = styled(FormWrapper)`
     min-width: 100%;
@@ -14,13 +17,21 @@ const FormLayout = styled(FormWrapper)`
 
 export const Filters = () => {
     const { formData, handleChange } = useForm({ param: "", value: "" });
-    const { handleGet } = useAxios();
+    const { handleGet, error, setError } = useAxios();
     const { param, value } = formData;
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = await handleGet(`${SEARCH_ALBUM}?${param}=${value}`);
-        console.log(res);
+        dispatch(indexAlbums(res));
+    };
+
+    const handleClean = async (e) => {
+        e.preventDefault();
+        const res = await handleGet(`${ALBUMS}`);
+        dispatch(indexAlbums(res));
+        setError("");
     };
 
     return (
@@ -43,7 +54,7 @@ export const Filters = () => {
                                 <option value="rap">Rap</option>
                                 <option value="rock">Rock</option>
                                 <option value="pop">Pop</option>
-                                <option value="r&b">R&B</option>
+                                <option value="rnb">R&B</option>
                                 <option value="tango">Tango</option>
                             </Select>
                         ) : (
@@ -54,6 +65,14 @@ export const Filters = () => {
                             </Select>
                         ))}
                     <Button onClick={(e) => handleSubmit(e)}>Filtrar</Button>
+                    {formData.value && (
+                        <Button onClick={(e) => handleClean(e)}>Limpiar filtros</Button>
+                    )}
+                    {error && (
+                        <ErrorText color="red">
+                            No hay albums que coincidan con los parámetros de búsqueda
+                        </ErrorText>
+                    )}
                 </InputGroup>
             </FormLayout>
         </div>

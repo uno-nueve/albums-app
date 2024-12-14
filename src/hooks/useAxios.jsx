@@ -61,5 +61,14 @@ export const useAxios = () => {
         }
     };
 
-    return { handleGet, handlePost, handlePut, handleDelete, error, isLoading, setisLoading };
+    return {
+        handleGet,
+        handlePost,
+        handlePut,
+        handleDelete,
+        error,
+        setError,
+        isLoading,
+        setisLoading,
+    };
 };
