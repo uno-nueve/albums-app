@@ -6,7 +6,8 @@ import InputGroup from "../ui/InputGroup";
 import { useForm } from "../../hooks/useForm";
 import { useAxios } from "../../hooks/useAxios";
 import { SALES } from "../../utils/urls";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setOrder } from "../../state/orders/ordersSlice";
 
 const InlineButton = styled(Button)`
     max-width: 200px;
@@ -26,12 +27,13 @@ const Row = styled.div`
 
 export const Searchbar = () => {
     const { formData, handleChange } = useForm({ search: "" });
-    const { handleGet } = useAxios();
-    const [data, setData] = useState(null);
+    const { handleGet, isLoading } = useAxios();
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.orders);
 
     const handleClick = async (id) => {
         const res = await handleGet(`${SALES}/${id}`);
-        setData(res);
+        dispatch(setOrder(res));
     };
 
     return (
@@ -54,10 +56,16 @@ export const Searchbar = () => {
                     </ButtonIcon>
                 </InlineButton>
             </Row>
-            <h2>
-                {data?.ordenNumero}
-                {data?.nombreCliente}
-            </h2>
+            {isLoading ? (
+                <div>Loading...</div>
+            ) : (
+                data && (
+                    <h2>
+                        {data.ordenNumero}
+                        {data.nombreCliente}
+                    </h2>
+                )
+            )}
         </>
     );
 };

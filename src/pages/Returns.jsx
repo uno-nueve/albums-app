@@ -2,7 +2,6 @@ import styled from "styled-components";
 import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import { Searchbar } from "../components/common/SearchBar";
-import { List } from "../components/List";
 
 const ImageCol = styled(GridCol)`
     padding: 0;
@@ -24,7 +23,6 @@ export const Returns = () => {
             <GridColsWrapper cols="repeat(2, minmax(0, 1fr))">
                 <GridCol>
                     <Searchbar />
-                    <List />
                 </GridCol>
                 <ImageCol>
                     <BgImage
