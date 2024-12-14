@@ -7,12 +7,12 @@ export const ListItem = ({ orden }) => {
     const { ordenNumero, nombreCliente, monto, album, _id } = orden;
     const [isLoading, setisLoading] = useState(false);
     const [data, setData] = useState();
-    const { handleAxios, error } = useAxios();
+    const { handleGet, handleDelete, error } = useAxios();
 
     const getAlbumData = async () => {
         setisLoading(true);
 
-        const res = await handleAxios(() => axios.get(`${BASE_URL}${ALBUMS}/${album}`));
+        const res = await handleGet(`${BASE_URL}${ALBUMS}/${album}`);
         setData(res);
 
         setisLoading(false);
@@ -30,15 +30,15 @@ export const ListItem = ({ orden }) => {
         return <div>Something went wrong. Please try again</div>;
     }
 
-    const handleDelete = async (id) => {
-        await handleAxios(() => axios.delete(`${BASE_URL}${SALES}/${id}`));
+    const onDelete = async (id) => {
+        await handleDelete(() => axios.delete(`${BASE_URL}${SALES}/${id}`));
     };
 
     return (
         <li>
             #{ordenNumero} | {nombreCliente} | ${monto}
             {data?.titulo}
-            <button onClick={() => handleDelete(_id)}>X</button>
+            <button onClick={() => onDelete(_id)}>X</button>
         </li>
     );
 };

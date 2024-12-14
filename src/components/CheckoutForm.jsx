@@ -5,29 +5,19 @@ import InputGroup from "./ui/InputGroup";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
 import { useSelector } from "react-redux";
-import axios from "axios";
 import { ALBUMS, BASE_URL, BUY_ALBUM } from "../utils/urls";
 
 export const CheckoutForm = ({ setResponse }) => {
     const data = useSelector((state) => state.cart.items);
     const { formData, handleChange } = useForm({ nombreCliente: "", monto: 2000 });
-    const { handleAxios } = useAxios();
+    const { handlePut } = useAxios();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const res = await Promise.all(
-            data.map((item) =>
-                handleAxios(() =>
-                    axios.put(`${BASE_URL}${ALBUMS}/${item._id}${BUY_ALBUM}`, formData, {
-                        headers: {
-                            "Access-Control-Allow-Credentials": true,
-                        },
-                    })
-                )
-            )
+            data.map((item) => handlePut(`${BASE_URL}${ALBUMS}/${item._id}${BUY_ALBUM}`, formData))
         );
-
         setResponse(res);
     };
 

@@ -26,20 +26,10 @@ const Row = styled.div`
 
 export const Searchbar = () => {
     const { formData, handleChange } = useForm({ search: "" });
-    const { handleAxios, error } = useAxios();
+    const { handlePut, error } = useAxios();
 
     const handleClick = async (id) => {
-        const res = await handleAxios(() =>
-            axios.put(
-                `${BASE_URL}${SALES}/${id}${RETURN_ALBUM}`,
-                {},
-                {
-                    headers: {
-                        "Access-Control-Allow-Credentials": true,
-                    },
-                }
-            )
-        );
+        const res = await handlePut(`${BASE_URL}${SALES}/${id}${RETURN_ALBUM}`, {});
         console.log(res);
     };
 

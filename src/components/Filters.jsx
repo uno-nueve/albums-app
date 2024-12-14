@@ -6,7 +6,6 @@ import styled from "styled-components";
 import Button from "./ui/Button";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
-import axios from "axios";
 import { BASE_URL, SEARCH_ALBUM, ALBUMS } from "../utils/urls";
 
 const FormLayout = styled(FormWrapper)`
@@ -15,14 +14,12 @@ const FormLayout = styled(FormWrapper)`
 
 export const Filters = () => {
     const { formData, handleChange } = useForm({ param: "", value: "" });
-    const { handleAxios } = useAxios();
+    const { handleGet } = useAxios();
     const { param, value } = formData;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await handleAxios(() =>
-            axios.get(`${BASE_URL}${ALBUMS}${SEARCH_ALBUM}?${param}=${value}`)
-        );
+        const res = await handleGet(`${BASE_URL}${ALBUMS}${SEARCH_ALBUM}?${param}=${value}`);
         console.log(res);
     };
 

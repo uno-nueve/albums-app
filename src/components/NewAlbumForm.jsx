@@ -4,7 +4,6 @@ import Input from "./ui/Input";
 import InputGroup from "./ui/InputGroup";
 import Select from "./ui/Select";
 import FormWrapper from "./ui/FormWrapper";
-import axios from "axios";
 import { ALBUMS, BASE_URL } from "../utils/urls";
 import { useForm } from "../hooks/useForm";
 import { useAxios } from "../hooks/useAxios";
@@ -36,14 +35,14 @@ export const NewAlbumForm = () => {
     };
 
     const { formData, handleChange, setFormData } = useForm(initialForm);
-    const { handleAxios, error } = useAxios();
+    const { handlePost, error } = useAxios();
     const { setShowModal } = useContext(ModalContext);
 
     const dispatch = useDispatch();
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await handleAxios(() => axios.post(`${BASE_URL}${ALBUMS}`, formData));
+        await handlePost(`${BASE_URL}${ALBUMS}`, formData);
         dispatch(addAlbum(formData));
         setTimeout(() => setShowModal(false), 300);
         setFormData(initialForm);
