@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./state/store.js";
 import { Checkout } from "./pages/Checkout.jsx";
 import { PersistGate } from "redux-persist/integration/react";
+import { Details } from "./pages/Details.jsx";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
                 ],
             },
             {
+                path: "albums/:id",
+                element: <Details />,
+            },
+            {
                 path: "returns",
                 element: <Returns />,
             },
@@ -58,6 +63,10 @@ const router = createBrowserRouter([
                         element: <Orders />,
                     },
                 ],
+            },
+            {
+                path: "dashboard/catalog/:id",
+                element: <Details />,
             },
             {
                 path: "checkout",
