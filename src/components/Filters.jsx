@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Button from "./ui/Button";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
-import { BASE_URL, SEARCH_ALBUM, ALBUMS } from "../utils/urls";
+import { SEARCH_ALBUM } from "../utils/urls";
 
 const FormLayout = styled(FormWrapper)`
     min-width: 100%;
@@ -19,7 +19,7 @@ export const Filters = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await handleGet(`${BASE_URL}${ALBUMS}${SEARCH_ALBUM}?${param}=${value}`);
+        const res = await handleGet(`${SEARCH_ALBUM}?${param}=${value}`);
         console.log(res);
     };
 

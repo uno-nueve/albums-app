@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useAxios } from "../hooks/useAxios";
 import { useEffect, useState } from "react";
-import { ALBUMS, BASE_URL } from "../utils/urls";
+import { ALBUMS } from "../utils/urls";
 
 export const Details = () => {
     const [data, setData] = useState();
@@ -10,7 +10,7 @@ export const Details = () => {
     const { handleGet, isLoading } = useAxios();
 
     const getAlbum = async () => {
-        const res = await handleGet(`${BASE_URL}${ALBUMS}/${params.id}`);
+        const res = await handleGet(`${ALBUMS}/${params.id}`);
         setData(res);
     };
 

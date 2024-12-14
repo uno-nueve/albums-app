@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BASE_URL, SALES } from "../utils/urls";
+import { SALES } from "../utils/urls";
 import { ListItem } from "./ListItem";
 
 export const List = () => {
@@ -12,7 +12,7 @@ export const List = () => {
         setisLoading(true);
 
         try {
-            const res = await axios.get(`${BASE_URL}${SALES}`);
+            const res = await axios.get(`${SALES}`);
             setData(res.data);
             // return res.data;
         } catch (e) {

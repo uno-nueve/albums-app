@@ -4,7 +4,7 @@ import Input from "./ui/Input";
 import InputGroup from "./ui/InputGroup";
 import Select from "./ui/Select";
 import FormWrapper from "./ui/FormWrapper";
-import { ALBUMS, BASE_URL } from "../utils/urls";
+import { ALBUMS } from "../utils/urls";
 import { useForm } from "../hooks/useForm";
 import { useAxios } from "../hooks/useAxios";
 import { useDispatch } from "react-redux";
@@ -42,7 +42,7 @@ export const NewAlbumForm = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await handlePost(`${BASE_URL}${ALBUMS}`, formData);
+        await handlePost(`${ALBUMS}`, formData);
         dispatch(addAlbum(formData));
         setTimeout(() => setShowModal(false), 300);
         setFormData(initialForm);

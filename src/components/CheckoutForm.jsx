@@ -5,7 +5,7 @@ import InputGroup from "./ui/InputGroup";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
 import { useSelector } from "react-redux";
-import { ALBUMS, BASE_URL, BUY_ALBUM } from "../utils/urls";
+import { ALBUMS } from "../utils/urls";
 
 export const CheckoutForm = ({ setResponse }) => {
     const data = useSelector((state) => state.cart.items);
@@ -16,7 +16,7 @@ export const CheckoutForm = ({ setResponse }) => {
         e.preventDefault();
 
         const res = await Promise.all(
-            data.map((item) => handlePut(`${BASE_URL}${ALBUMS}/${item._id}${BUY_ALBUM}`, formData))
+            data.map((item) => handlePut(`${ALBUMS}/${item._id}/buy`, formData))
         );
         setResponse(res);
     };

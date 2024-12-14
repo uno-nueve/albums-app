@@ -5,8 +5,8 @@ import { SearchMd } from "../ui/svgs";
 import InputGroup from "../ui/InputGroup";
 import { useForm } from "../../hooks/useForm";
 import { useAxios } from "../../hooks/useAxios";
-import axios from "axios";
-import { BASE_URL, RETURN_ALBUM, SALES } from "../../utils/urls";
+import { SALES } from "../../utils/urls";
+import { useState } from "react";
 
 const InlineButton = styled(Button)`
     max-width: 200px;
@@ -26,32 +26,38 @@ const Row = styled.div`
 
 export const Searchbar = () => {
     const { formData, handleChange } = useForm({ search: "" });
-    const { handlePut, error } = useAxios();
+    const { handleGet } = useAxios();
+    const [data, setData] = useState(null);
 
     const handleClick = async (id) => {
-        const res = await handlePut(`${BASE_URL}${SALES}/${id}${RETURN_ALBUM}`, {});
-        console.log(res);
+        const res = await handleGet(`${SALES}/${id}`);
+        setData(res);
     };
 
     return (
-        <Row>
-            <InputGroup>
-                <label htmlFor="search">
-                    <Input
-                        id="search"
-                        name="search"
-                        value={formData.search}
-                        onChange={handleChange}
-                    />
-                </label>
-            </InputGroup>
-            <InlineButton onClick={() => handleClick(formData.search)}>
-                Buscar
-                <ButtonIcon>
-                    <SearchMd />
-                </ButtonIcon>
-            </InlineButton>
-            {error && <span>Error returning album</span>}
-        </Row>
+        <>
+            <Row>
+                <InputGroup>
+                    <label htmlFor="search">
+                        <Input
+                            id="search"
+                            name="search"
+                            value={formData.search}
+                            onChange={handleChange}
+                        />
+                    </label>
+                </InputGroup>
+                <InlineButton onClick={() => handleClick(formData.search)}>
+                    Buscar
+                    <ButtonIcon>
+                        <SearchMd />
+                    </ButtonIcon>
+                </InlineButton>
+            </Row>
+            <h2>
+                {data?.ordenNumero}
+                {data?.nombreCliente}
+            </h2>
+        </>
     );
 };

@@ -5,7 +5,7 @@ import GridColsWrapper from "../components/ui/GridColWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { indexAlbums } from "../state/albums/albumsSlice";
 import styled from "styled-components";
-import { BASE_URL, ALBUMS } from "../utils/urls";
+import { ALBUMS } from "../utils/urls";
 
 const GridLayout = styled(GridColsWrapper)`
     min-height: calc(100% - 40px);
@@ -23,7 +23,7 @@ export const Catalog = () => {
         setisLoading(true);
 
         try {
-            const res = await axios.get(`${BASE_URL}${ALBUMS}`);
+            const res = await axios.get(`${ALBUMS}`);
             return res.data;
         } catch (e) {
             setError(e);
