@@ -40,9 +40,9 @@ export const ListItem = ({ order }) => {
 
     return (
         <LItem>
-            <FlexContainer justifyContent="space-between" alignItems="center" padding="0 16px">
-                <FlexContainer gap="24px" alignItems="center">
-                    <Text fontSize="20px">ORDEN #{ordenNumero}</Text>
+            <FlexContainer justify="space-between" items="center" p="0 16px">
+                <FlexContainer gap="24px" items="center">
+                    <Text size="20px">ORDEN #{ordenNumero}</Text>
                     <Text>{nombreCliente}</Text>
                 </FlexContainer>
                 <ButtonContainer h="24px" minw="24px" w="max-content">
@@ -57,19 +57,19 @@ export const ListItem = ({ order }) => {
                     )}
                 </ButtonContainer>
             </FlexContainer>
-            <FlexContainer gap="16px" padding="16px" bg="#525252" color="#ffffff" round="8px">
-                <FlexContainer width="80px">
+            <FlexContainer gap="16px" p="16px" bg="#525252" color="#ffffff" round="8px">
+                <FlexContainer w="80px">
                     <ImageContainer>
                         <Image src={album.images[0].url} alt={album.titulo} />
                     </ImageContainer>
                 </FlexContainer>
-                <FlexContainer width="100%" justifyContent="space-between" alignItems="center">
+                <FlexContainer w="100%" justify="space-between" items="center">
                     <FlexContainer column>
-                        <Text fontSize="20px">{album.titulo}</Text>
+                        <Text size="20px">{album.titulo}</Text>
                         <Text>{album.artista}</Text>
                     </FlexContainer>
-                    <FlexContainer gap="80px" alignItems="center">
-                        <Text fontSize="20px">${monto}</Text>
+                    <FlexContainer gap="80px" items="center">
+                        <Text size="20px">${monto}</Text>
                         <Pill status={estado}>{estado}</Pill>
                     </FlexContainer>
                 </FlexContainer>

@@ -43,9 +43,11 @@ export const Catalog = () => {
         <>
             <FlexContainer items="center" justify="space-between" p="0 16px">
                 <h1>{location.pathname === "/albums" ? "ALBUMS" : "CATALOGO"}</h1>
-                <ButtonContainer w="max-content" h="max-content">
-                    <Button onClick={() => setShowModal(true)}>Carrito</Button>
-                </ButtonContainer>
+                {location.pathname === "/albums" && (
+                    <ButtonContainer w="max-content" h="max-content">
+                        <Button onClick={() => setShowModal(true)}>Carrito</Button>
+                    </ButtonContainer>
+                )}
             </FlexContainer>
             <GridLayout cols="repeat(4, minmax(0, 1fr))">
                 {data?.map((album) => (

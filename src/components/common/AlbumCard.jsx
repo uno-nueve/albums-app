@@ -62,18 +62,20 @@ export const AlbumCard = ({ album }) => {
     }
 
     return (
-        <Link to={`/dashboard/catalog/${_id}`}>
-            <FlexContainer gap="16px" padding="8px" column>
-                <ImageContainer>
-                    <Image src={images[0].url} alt={titulo} />
-                </ImageContainer>
-                <div>
-                    <Text weight="600" fontSize="1.25rem">
-                        {titulo}
-                    </Text>
-                    <Text color="#737373">{artista}</Text>
-                </div>
-            </FlexContainer>
-        </Link>
+        <CardContainer>
+            <Link to={`/dashboard/catalog/${_id}`}>
+                <FlexContainer gap="16px" padding="8px" column>
+                    <ImageContainer>
+                        <Image src={images[0].url} alt={titulo} />
+                    </ImageContainer>
+                    <div>
+                        <Text weight="600" fontSize="1.25rem">
+                            {titulo}
+                        </Text>
+                        <Text color="#737373">{artista}</Text>
+                    </div>
+                </FlexContainer>
+            </Link>
+        </CardContainer>
     );
 };

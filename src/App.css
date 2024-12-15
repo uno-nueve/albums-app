@@ -30,3 +30,7 @@ a {
 a:visited {
     color: transparent;
 }
+
+.active {
+    background-color: #171717;
+}

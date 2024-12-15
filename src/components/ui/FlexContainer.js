@@ -11,5 +11,6 @@ export const FlexContainer = styled.div`
     width: ${(props) => props.w && props.w};
     background-color: ${(props) => props.bg && props.bg};
     color: ${(props) => props.color && props.color};
+    border-bottom: ${(props) => props.borderb && props.borderb};
     border-radius: ${(props) => props.round && props.round};
 `;
