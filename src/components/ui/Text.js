@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Text = styled.p`
-    font-size: ${(props) => (props.fontSize ? props.fontSize : "1rem")};
-    font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "400")};
+    font-size: ${(props) => (props.size ? props.size : "1rem")};
+    font-weight: ${(props) => (props.weight ? props.weight : "400")};
     color: ${(props) => props.color && props.color};
     overflow: hidden;
     display: -webkit-box;

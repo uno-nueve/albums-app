@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Filters } from "../components/Filters";
 import { useTitle } from "../hooks/useTitle";
 import styled from "styled-components";
+import { FlexContainer } from "../components/ui/FlexContainer";
 
 const ScrollCol = styled(GridCol)`
     overflow-y: scroll;
@@ -20,9 +21,9 @@ export const Store = () => {
     return (
         <CartContext.Provider value={{ showModal, setShowModal }}>
             <GridColsWrapper cols="1fr 3fr">
-                <GridCol>
+                <FlexContainer p="20px 40px" bg="#262626" color="#ffffff" column>
                     <Filters />
-                </GridCol>
+                </FlexContainer>
                 <ScrollCol>
                     <Outlet />
                 </ScrollCol>

@@ -9,10 +9,14 @@ import { useForm } from "../hooks/useForm";
 import { ALBUMS, SEARCH_ALBUM } from "../utils/urls";
 import { useDispatch } from "react-redux";
 import { indexAlbums } from "../state/albums/albumsSlice";
-import { ErrorText } from "./ui/Text";
+import { ErrorText, Text } from "./ui/Text";
+import { FlexContainer } from "./ui/FlexContainer";
 
 const FormLayout = styled(FormWrapper)`
     min-width: 100%;
+    padding: 0;
+    background-color: transparent;
+    border: none;
 `;
 
 export const Filters = () => {
@@ -35,8 +39,10 @@ export const Filters = () => {
     };
 
     return (
-        <div>
-            <h3>Filtrar</h3>
+        <FlexContainer gap="8px" column>
+            <Text color="#ef4444" weight="600">
+                FILTRAR
+            </Text>
             <FormLayout>
                 <InputGroup>
                     <Select id="param" name="param" onChange={handleChange}>
@@ -75,6 +81,6 @@ export const Filters = () => {
                     )}
                 </InputGroup>
             </FormLayout>
-        </div>
+        </FlexContainer>
     );
 };

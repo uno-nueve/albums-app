@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button`
     max-height: 40px;
     display: inline-flex;
-    padding: 8px 16px;
+    padding: 12px 20px;
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -11,8 +11,10 @@ export const Button = styled.button`
     background-color: #f5f5f5;
     color: black;
     border: none;
+    border-radius: 12px;
     font-weight: 400;
     font-size: 1rem;
+    transition: 0.3s;
 
     &:hover {
         background-color: black;

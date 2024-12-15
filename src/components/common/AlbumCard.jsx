@@ -14,10 +14,20 @@ const CardContainer = styled(FlexContainer)`
     transition: 0.3s;
     flex-direction: column;
     gap: 16px;
-    padding: 8px;
+    padding: 16px;
+    border: 1px solid transparent;
+    border-radius: 24px;
 
     &:hover {
         filter: none;
+        border: 1px solid #e5e5e5;
+        background: linear-gradient(transparent, #f5f5f5);
+    }
+`;
+
+const StyledLink = styled(Link)`
+    &:visited {
+        color: #ef4444;
     }
 `;
 
@@ -35,30 +45,30 @@ export const AlbumCard = ({ album }) => {
     if (location.pathname === "/albums") {
         return (
             <CardContainer>
-                <Link to={`/albums/${_id}`} style={{ width: "100%", height: "100%" }}>
+                <StyledLink to={`/albums/${_id}`}>
                     <FlexContainer gap="8px" column>
                         <ImageContainer>
                             <Image src={images[0].url} alt={titulo} />
                         </ImageContainer>
                         <div>
-                            <Text fontWeight="600">{titulo}</Text>
+                            <Text weight="600">{titulo}</Text>
                             <Text color="#737373">{artista}</Text>
                         </div>
                     </FlexContainer>
-                </Link>
+                </StyledLink>
                 <Button onClick={handleCart}>Añadir al carrito</Button>
             </CardContainer>
         );
     }
 
     return (
-        <Link to={`/dashboard/catalog/${_id}`} style={{ width: "100%", height: "100%" }}>
+        <Link to={`/dashboard/catalog/${_id}`}>
             <FlexContainer gap="16px" padding="8px" column>
                 <ImageContainer>
                     <Image src={images[0].url} alt={titulo} />
                 </ImageContainer>
                 <div>
-                    <Text fontWeight="600" fontSize="1.25rem">
+                    <Text weight="600" fontSize="1.25rem">
                         {titulo}
                     </Text>
                     <Text color="#737373">{artista}</Text>

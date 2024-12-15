@@ -7,9 +7,10 @@ const Input = styled.input`
     border: none;
     border-bottom: 1px solid #9e9e9e;
     font-size: 1rem;
+    background: none;
 
     &:hover {
-        border-color: black;
+        border-color: #ffffff;
     }
 
     &:focus {
