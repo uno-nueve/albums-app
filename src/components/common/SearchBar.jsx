@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../ui/Button";
+import { Button, ButtonIcon } from "../ui/Button";
 import Input from "../ui/Input";
 import { SearchMd } from "../ui/svgs";
 import InputGroup from "../ui/InputGroup";
@@ -9,21 +9,11 @@ import { SALES } from "../../utils/urls";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../state/orders/ordersSlice";
 import { ListItem } from "../ListItem";
+import { FlexContainer } from "../ui/FlexContainer";
 
 const InlineButton = styled(Button)`
     max-width: 200px;
-    gap: 20px;
-`;
-
-const ButtonIcon = styled.div`
-    width: 19px;
-    height: 19px;
-`;
-
-const Row = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    gap: 16px;
 `;
 
 export const Searchbar = () => {
@@ -39,9 +29,9 @@ export const Searchbar = () => {
     };
 
     return (
-        <>
-            <Row>
-                <InputGroup>
+        <FlexContainer gap="8px" p="20px" bg="#262626" round="24px" column>
+            <FlexContainer items="center">
+                <FlexContainer gap="20px" w="100%" p="0 16px" column>
                     <label htmlFor="search">
                         <Input
                             id="search"
@@ -50,15 +40,15 @@ export const Searchbar = () => {
                             onChange={handleChange}
                         />
                     </label>
-                </InputGroup>
+                </FlexContainer>
                 <InlineButton onClick={() => handleClick(formData.search)}>
                     Buscar
-                    <ButtonIcon>
+                    <ButtonIcon w="16px" h="16px">
                         <SearchMd />
                     </ButtonIcon>
                 </InlineButton>
-            </Row>
+            </FlexContainer>
             {isLoading ? <div>Loading...</div> : data !== null && <ListItem order={data} />}
-        </>
+        </FlexContainer>
     );
 };

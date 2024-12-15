@@ -23,7 +23,7 @@ const HeaderContainer = styled.header`
 
 const NavWrapper = styled.nav`
     display: flex;
-    gap: 20px;
+    gap: 12px;
 
     @media (max-width: 480px) {
         display: none;
@@ -43,9 +43,12 @@ const StyledNavLink = styled(NavLink)`
     color: #ffffff;
     transition: 0.2s;
     font-size: 1.125rem;
+    padding: 8px 16px;
+    border-radius: 12px;
 
     &:hover {
         color: #ef4444;
+        background-color: #191919;
     }
 `;
 

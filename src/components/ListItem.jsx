@@ -15,7 +15,7 @@ const LItem = styled.li`
     list-style: none;
     display: flex;
     flex-direction: column;
-    max-width: 680px;
+    max-width: 720px;
     padding: 8px;
     gap: 8px;
     background-color: #262626;
