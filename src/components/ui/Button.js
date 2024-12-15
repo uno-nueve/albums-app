@@ -15,6 +15,7 @@ export const Button = styled.button`
     font-weight: 400;
     font-size: 1rem;
     transition: 0.3s;
+    cursor: pointer;
 
     &:hover {
         background-color: black;
@@ -31,4 +32,9 @@ export const ButtonContainer = styled.div`
     min-width: ${(props) => (props.minw ? props.minw : "19px")};
     width: ${(props) => (props.w ? props.w : "19px")};
     height: ${(props) => (props.h ? props.h : "19px")};
+    position: ${(props) => props.absolute && "absolute"};
+    top: ${(props) => props.top && props.top};
+    right: ${(props) => props.right && props.right};
+    bottom: ${(props) => props.bottom && props.bottom};
+    left: ${(props) => props.left && props.left};
 `;

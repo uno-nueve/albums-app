@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import styled from "styled-components";
 import FormWrapper from "./ui/FormWrapper";
-import InputGroup from "./ui/InputGroup";
 import Select from "./ui/Select";
 import { mockUsers } from "../utils/mockUsers";
 import Input from "./ui/Input";
@@ -9,6 +8,7 @@ import { ArrowNarrowLeft } from "./ui/svgs";
 import { Button } from "./ui/Button";
 import { useAuth } from "../hooks/useAuth";
 import { useForm } from "../hooks/useForm";
+import { FlexContainer } from "./ui/FlexContainer";
 
 const IconContainer = styled.div`
     width: 20px;
@@ -22,10 +22,15 @@ const StyledLink = styled(Link)`
     display: flex;
     gap: 10px;
     align-items: center;
+    color: #ef4444;
 `;
 
 const ErrorText = styled.span`
-    color: #dc2626;
+    background-color: #fecaca;
+    width: max-content;
+    padding: 4px 8px;
+    color: #b91c1c;
+    border-radius: 8px;
 `;
 
 export const LoginForm = () => {
@@ -46,7 +51,7 @@ export const LoginForm = () => {
         <>
             <FormWrapper>
                 <h3>Inicia Sesión como Administrador</h3>
-                <InputGroup>
+                <FlexContainer gap="20px" w="100%" column>
                     <label htmlFor="select">
                         Usuarios predeterminados
                         <Select id="select" name="select" onChange={handleSelection}>
@@ -87,7 +92,7 @@ export const LoginForm = () => {
                         </IconContainer>
                         Volver a la página principal
                     </StyledLink>
-                </InputGroup>
+                </FlexContainer>
                 <Button onClick={onSubmit}>Iniciar sesión</Button>
             </FormWrapper>
         </>

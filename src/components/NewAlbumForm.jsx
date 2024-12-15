@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Button } from "./ui/Button";
 import Input from "./ui/Input";
 import InputGroup from "./ui/InputGroup";
@@ -11,13 +10,6 @@ import { useDispatch } from "react-redux";
 import { addAlbum } from "../state/albums/albumsSlice";
 import { useContext } from "react";
 import { ModalContext } from "../contexts/ModalContext";
-
-const FormContainer = styled(FormWrapper)`
-    min-width: 100%;
-    height: 100%;
-    padding: 0;
-    border: none;
-`;
 
 export const NewAlbumForm = () => {
     const initialForm = {
@@ -50,7 +42,7 @@ export const NewAlbumForm = () => {
 
     return (
         <>
-            <FormContainer>
+            <FormWrapper>
                 <h3>Nuevo Album</h3>
                 {error && <p>{error}</p>}
                 <InputGroup>
@@ -83,7 +75,7 @@ export const NewAlbumForm = () => {
                     </label>
                 </InputGroup>
                 <Button onClick={onSubmit}>Añadir</Button>
-            </FormContainer>
+            </FormWrapper>
         </>
     );
 };

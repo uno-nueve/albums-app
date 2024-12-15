@@ -13,4 +13,5 @@ export const FlexContainer = styled.div`
     color: ${(props) => props.color && props.color};
     border-bottom: ${(props) => props.borderb && props.borderb};
     border-radius: ${(props) => props.round && props.round};
+    position: relative;
 `;

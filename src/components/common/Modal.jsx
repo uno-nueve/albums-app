@@ -1,20 +1,20 @@
 import styled from "styled-components";
 import { XClose } from "../ui/svgs";
 import { NewAlbumForm } from "../NewAlbumForm";
-import { Button } from "../ui/Button";
+import { Button, ButtonContainer, ButtonIcon } from "../ui/Button";
 import { useContext } from "react";
 import { ModalContext } from "../../contexts/ModalContext";
+import { FlexContainer } from "../ui/FlexContainer";
 
 const ModalContainer = styled.div`
-    background-color: white;
-    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: saturate(180%) blur(10px);
     width: 100%;
-    max-width: 520px;
     height: 100%;
-    max-height: 640px;
-    padding: 40px 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 40px;
     position: absolute;
     left: 0;
@@ -26,20 +26,10 @@ const ModalContainer = styled.div`
     opacity: ${(props) => (props.showmodal ? "100%" : "0%")};
     z-index: 10;
     transition: 0.3s;
-`;
 
-const IconContainer = styled.div`
-    width: 20px;
-    heigth: 100%;
-    display: flex;
-    align-items: center;
-`;
-
-const ModalButton = styled(Button)`
-    position: absolute;
-    width: 40px;
-    left: 20px;
-    top: 20px;
+    &:backdrop {
+        background: tomato;
+    }
 `;
 
 export const Modal = () => {
@@ -47,12 +37,16 @@ export const Modal = () => {
 
     return (
         <ModalContainer showmodal={showModal}>
-            <NewAlbumForm />
-            <ModalButton onClick={() => setShowModal(false)}>
-                <IconContainer>
-                    <XClose />
-                </IconContainer>
-            </ModalButton>
+            <FlexContainer>
+                <NewAlbumForm />
+                <ButtonContainer w="max-content" h="max-content" top="20px" left="20px" absolute>
+                    <Button onClick={() => setShowModal(false)}>
+                        <ButtonIcon>
+                            <XClose />
+                        </ButtonIcon>
+                    </Button>
+                </ButtonContainer>
+            </FlexContainer>
         </ModalContainer>
     );
 };
