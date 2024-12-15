@@ -14,20 +14,15 @@
 }
 
 body {
-    font-family: var(--varela-round);
+    font-family: var(--dm-sans);
     overflow: hidden;
 }
 
 button,
 input {
-    font-family: var(--varela-round);
+    font-family: var(--dm-sans);
 }
 
 a {
     text-decoration: none;
-    color: var(--main-text);
-}
-
-a:visited {
-    color: var(--main-text);
 }

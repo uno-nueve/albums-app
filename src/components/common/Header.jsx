@@ -1,11 +1,10 @@
 import { Link, NavLink } from "react-router";
 import styled from "styled-components";
-import { MenuIcon } from "../ui/svgs";
+import { Logo, MenuIcon } from "../ui/svgs";
 
 const HeaderWrapper = styled.div`
-    border: 1px solid black;
-    background-color: white;
-    color: black;
+    background-color: #262626;
+    color: #ffffff;
     padding: 18px 40px;
     height: 80px;
     display: flex;
@@ -40,16 +39,30 @@ const MenuButton = styled.div`
     }
 `;
 
+const StyledNavLink = styled(NavLink)`
+    color: #ffffff;
+    transition: 0.2s;
+    font-size: 1.125rem;
+
+    &:hover {
+        color: #ef4444;
+    }
+`;
+
 export const Header = ({ navLinks }) => {
     return (
         <HeaderWrapper>
             <HeaderContainer>
-                <Link to="/">LOGO</Link>
+                <Link to="/">
+                    <div style={{ height: "40px" }}>
+                        <Logo />
+                    </div>
+                </Link>
                 <NavWrapper>
                     {navLinks?.map(({ label, to }) => (
-                        <NavLink key={to} to={to}>
+                        <StyledNavLink key={to} to={to}>
                             {label}
-                        </NavLink>
+                        </StyledNavLink>
                     ))}
                 </NavWrapper>
                 <MenuButton>

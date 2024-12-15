@@ -23,15 +23,15 @@ function App() {
     if (!user) {
         navLinks.push(
             {
-                label: "Catálogo",
+                label: "CATALOGO",
                 to: "/albums",
             },
             {
-                label: "Devoluciones",
+                label: "DEVOLUCIONES",
                 to: "/returns",
             },
             {
-                label: "Inicia sesión",
+                label: "INICIAR SESION",
                 to: "/login",
             }
         );
