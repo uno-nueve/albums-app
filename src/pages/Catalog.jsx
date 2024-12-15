@@ -39,7 +39,7 @@ export const Catalog = () => {
         <>
             <h1>{location.pathname === "/albums" ? "Albums" : "Catálogo"}</h1>
             <GridLayout cols="repeat(4, minmax(0, 1fr))">
-                {data.map((album) => (
+                {data?.map((album) => (
                     <AlbumCard key={album._id} album={album} />
                 ))}
             </GridLayout>

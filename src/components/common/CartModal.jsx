@@ -58,7 +58,7 @@ export const CartModal = () => {
                 <div>No tienes items en tu carrito</div>
             ) : (
                 <>
-                    {data.map((album) => (
+                    {data?.map((album) => (
                         <div key={album._id}>
                             <span>{album.titulo}</span>
                             <button onClick={() => dispatch(removeFromCart(album._id))}>X</button>

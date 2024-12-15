@@ -16,7 +16,7 @@ export const CheckoutForm = ({ setResponse }) => {
         e.preventDefault();
 
         const res = await Promise.all(
-            data.map((item) => handlePut(`${ALBUMS}/${item._id}/buy`, formData))
+            data?.map((item) => handlePut(`${ALBUMS}/${item._id}/buy`, formData))
         );
         setResponse(res);
     };

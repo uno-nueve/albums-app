@@ -31,13 +31,13 @@ export const Checkout = () => {
                     <h3>Finalizar compra</h3>
                     <div>
                         Tu carrito:
-                        {data.map((item) => (
+                        {data?.map((item) => (
                             <span key={item._id}>{item.titulo}</span>
                         ))}
                     </div>
                     <CheckoutForm setResponse={setResponse} />
                     {response &&
-                        response.map(({ venta, album }) => (
+                        response?.map(({ venta, album }) => (
                             <div key={venta?._id}>
                                 <h3>Compra exitosa</h3>
                                 Orden #{venta?.ordenNumero}

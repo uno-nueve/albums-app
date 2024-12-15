@@ -51,7 +51,7 @@ export const LoginForm = () => {
                         Usuarios predeterminados
                         <Select id="select" name="select" onChange={handleSelection}>
                             <option value="" hidden></option>
-                            {mockUsers.map(({ username, credentials }) => (
+                            {mockUsers?.map(({ username, credentials }) => (
                                 <option key={username} value={JSON.stringify(credentials)}>
                                     {username}
                                 </option>
