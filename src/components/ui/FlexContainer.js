@@ -9,4 +9,7 @@ export const FlexContainer = styled.div`
     padding: ${(props) => props.padding && props.padding};
     height: ${(props) => props.height && props.height};
     width: ${(props) => props.width && props.width};
+    background-color: ${(props) => props.bg && props.bg};
+    color: ${(props) => props.color && props.color};
+    border-radius: ${(props) => props.round && props.round};
 `;
