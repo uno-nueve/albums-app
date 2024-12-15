@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import GridCol from "../components/ui/GridCol";
-import { Button } from "../components/ui/Button";
+import { Button, ButtonIcon } from "../components/ui/Button";
 import { Link } from "react-router";
 import { ArrowNarrowRight } from "../components/ui/svgs";
 import { useContext } from "react";
@@ -15,7 +15,8 @@ const InlineButton = styled(Button)`
     font-size: 20px;
 `;
 
-const DisplayCol = styled(GridCol)`
+const DisplayCol = styled(FlexContainer)`
+    flex-direction: column;
     justify-content: space-between;
     padding: 80px 40px;
     align-items: end;
@@ -26,7 +27,7 @@ const DisplayCol = styled(GridCol)`
     }
 `;
 
-const ImageCol = styled(GridCol)`
+const ImageCol = styled(FlexContainer)`
     padding: 0;
 
     @media (max-width: 768px) {
@@ -46,11 +47,6 @@ const StyledLink = styled(Link)`
     justify-content: end;
 `;
 
-const ButtonIcon = styled.div`
-    width: 24px;
-    height: 100%;
-`;
-
 const BgImage = styled.img`
     width: 100%;
     height: 100%;
@@ -61,7 +57,7 @@ export const Home = () => {
     const user = useContext(UserContext);
     useTitle("Viniltory");
     return (
-        <FlexContainer height="calc(100vh - 80px)">
+        <FlexContainer h="calc(100vh - 80px)">
             <GridLayout cols="repeat(2, minmax(0, 1fr))">
                 <ImageCol>
                     <BgImage
