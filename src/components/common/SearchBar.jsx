@@ -8,6 +8,7 @@ import { useAxios } from "../../hooks/useAxios";
 import { SALES } from "../../utils/urls";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../state/orders/ordersSlice";
+import { ListItem } from "../ListItem";
 
 const InlineButton = styled(Button)`
     max-width: 200px;
@@ -30,6 +31,7 @@ export const Searchbar = () => {
     const { handleGet, isLoading } = useAxios();
     const dispatch = useDispatch();
     const data = useSelector((state) => state.orders);
+    console.log(data);
 
     const handleClick = async (id) => {
         const res = await handleGet(`${SALES}/${id}`);
@@ -56,16 +58,7 @@ export const Searchbar = () => {
                     </ButtonIcon>
                 </InlineButton>
             </Row>
-            {isLoading ? (
-                <div>Loading...</div>
-            ) : (
-                data && (
-                    <h2>
-                        {data.ordenNumero}
-                        {data.nombreCliente}
-                    </h2>
-                )
-            )}
+            {isLoading ? <div>Loading...</div> : data !== null && <ListItem order={data} />}
         </>
     );
 };

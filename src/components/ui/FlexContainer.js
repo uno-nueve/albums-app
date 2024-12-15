@@ -8,4 +8,5 @@ export const FlexContainer = styled.div`
     gap: ${(props) => props.gap && props.gap};
     padding: ${(props) => props.padding && props.padding};
     height: ${(props) => props.height && props.height};
+    width: ${(props) => props.width && props.width};
 `;

@@ -36,7 +36,7 @@ export const useAxios = () => {
     const handlePut = async (url, body) => {
         setisLoading(true);
         try {
-            const res = await axios.post(url, body, {
+            const res = await axios.put(url, body, {
                 headers: { "Access-Control-Allow-Credentials": true },
             });
             return res.data;
@@ -51,7 +51,7 @@ export const useAxios = () => {
     const handleDelete = async (url) => {
         setisLoading(true);
         try {
-            const res = await axios.get(url);
+            const res = await axios.delete(url);
             return res.data;
         } catch (e) {
             console.log(e);

@@ -4,7 +4,6 @@ export const Text = styled.p`
     font-size: ${(props) => (props.fontSize ? props.fontSize : "1rem")};
     font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "400")};
     color: ${(props) => props.color && props.color};
-    width: 100%;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;

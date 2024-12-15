@@ -1,26 +1,15 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { SALES } from "../utils/urls";
 import { ListItem } from "./ListItem";
+import { useAxios } from "../hooks/useAxios";
 
 export const List = () => {
-    const [error, setError] = useState("");
-    const [isLoading, setisLoading] = useState(false);
     const [data, setData] = useState([]);
+    const { handleGet, isLoading, error } = useAxios();
 
     const getSales = async () => {
-        setisLoading(true);
-
-        try {
-            const res = await axios.get(`${SALES}`);
-            setData(res.data);
-            // return res.data;
-        } catch (e) {
-            setError(e);
-            console.error(e);
-        } finally {
-            setisLoading(false);
-        }
+        const res = await handleGet(`${SALES}`);
+        setData(res);
     };
 
     useEffect(() => {
@@ -36,12 +25,12 @@ export const List = () => {
     }
 
     return (
-        <div>
-            <ul>
-                {data.map((orden) => (
-                    <ListItem key={orden._id} orden={orden} />
+        <>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                {data?.map((orden) => (
+                    <ListItem key={orden._id} order={orden} />
                 ))}
             </ul>
-        </div>
+        </>
     );
 };
