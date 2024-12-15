@@ -4,7 +4,7 @@ import GridColsWrapper from "../components/ui/GridColWrapper";
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { Avatar, AvatarContainer, ProfileWrapper } from "../components/ui/Profile.js";
-import Button from "../components/ui/Button.js";
+import { Button } from "../components/ui/Button.js";
 import { ModalContext } from "../contexts/ModalContext.js";
 import { Modal } from "../components/common/Modal.jsx";
 import { FlexContainer } from "../components/ui/FlexContainer.js";

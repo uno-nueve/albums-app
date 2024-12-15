@@ -1,4 +1,4 @@
-import Button from "./ui/Button";
+import { Button } from "./ui/Button";
 import FormWrapper from "./ui/FormWrapper";
 import Input from "./ui/Input";
 import InputGroup from "./ui/InputGroup";

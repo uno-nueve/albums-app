@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import Button from "../ui/Button";
+import { Button } from "../ui/Button";
 import { Image, ImageContainer } from "../ui/Image";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../state/cart/cartSlice";

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { XClose } from "../ui/svgs";
 import { NewAlbumForm } from "../NewAlbumForm";
-import Button from "../ui/Button";
+import { Button } from "../ui/Button";
 import { useContext } from "react";
 import { ModalContext } from "../../contexts/ModalContext";
 

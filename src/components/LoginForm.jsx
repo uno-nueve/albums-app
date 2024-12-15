@@ -6,7 +6,7 @@ import Select from "./ui/Select";
 import { mockUsers } from "../utils/mockUsers";
 import Input from "./ui/Input";
 import { ArrowNarrowLeft } from "./ui/svgs";
-import Button from "./ui/Button";
+import { Button } from "./ui/Button";
 import { useAuth } from "../hooks/useAuth";
 import { useForm } from "../hooks/useForm";
 

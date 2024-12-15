@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import Button from "../ui/Button";
+import { Button } from "../ui/Button";
 import { XClose } from "../ui/svgs";
 import { CartContext } from "../../contexts/CartContext";
 import { useDispatch, useSelector } from "react-redux";

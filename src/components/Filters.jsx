@@ -3,7 +3,7 @@ import Input from "./ui/Input";
 import FormWrapper from "./ui/FormWrapper";
 import InputGroup from "./ui/InputGroup";
 import styled from "styled-components";
-import Button from "./ui/Button";
+import { Button } from "./ui/Button";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
 import { ALBUMS, SEARCH_ALBUM } from "../utils/urls";

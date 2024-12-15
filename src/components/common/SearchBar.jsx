@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "../ui/Button";
+import { Button } from "../ui/Button";
 import Input from "../ui/Input";
 import { SearchMd } from "../ui/svgs";
 import InputGroup from "../ui/InputGroup";

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import GridCol from "../components/ui/GridCol";
-import Button from "../components/ui/Button";
+import { Button } from "../components/ui/Button";
 import { Link } from "react-router";
 import { ArrowNarrowRight } from "../components/ui/svgs";
 import { useContext } from "react";
