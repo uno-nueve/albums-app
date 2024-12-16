@@ -24,7 +24,7 @@ export const CartModal = () => {
     return (
         <ModalWrapper showmodal={showModal}>
             <FlexContainer gap="2.5rem" w="100%" items="center" column>
-                <Text weight="600" size="1.125rem" color="#ef4444">
+                <Text weight="600" size="1.125rem" color="var(--accent)">
                     CARRITO
                 </Text>
                 {data === undefined || data.length === 0 ? (

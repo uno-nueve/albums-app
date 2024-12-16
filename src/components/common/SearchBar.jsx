@@ -37,8 +37,8 @@ export const Searchbar = () => {
             gap="1rem"
             p="0.75rem"
             maxw="680px"
-            bg="#262626"
-            color="#ffffff"
+            bg="var(--dark)"
+            color="var(--light)"
             round="1.5rem"
             column
         >

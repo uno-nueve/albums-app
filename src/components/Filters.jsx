@@ -60,7 +60,7 @@ export const Filters = () => {
 
     return (
         <FlexContainer gap="0.5rem" column>
-            <Text color="#ef4444" weight="600">
+            <Text color="var(--accent)" weight="600">
                 FILTRAR
             </Text>
             <FormLayout>

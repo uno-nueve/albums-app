@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-    background-color: #262626;
-    color: #ffffff;
+    background-color: var(--dark);
+    color: var(--light);
     padding: 1.125rem 2.5rem;
     height: 80px;
     display: flex;

@@ -26,7 +26,7 @@ export const List = () => {
 
     return (
         <>
-            <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {data?.map((orden) => (
                     <ListItem key={orden._id} order={orden} />
                 ))}

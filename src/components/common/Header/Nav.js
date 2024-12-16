@@ -21,7 +21,7 @@ export const MenuButton = styled.div`
 export const MobileNav = styled.div`
     height: ${(props) => (props.showmodal ? "calc(100vh - 80px)" : "0")};
     width: 100%;
-    background-color: #262626;
+    background-color: var(--dark);
     visibility: ${(props) => (props.showmodal ? "visible" : "hidden")};
     opacity: ${(props) => (props.showmodal ? "1" : "0")};
     position: absolute;

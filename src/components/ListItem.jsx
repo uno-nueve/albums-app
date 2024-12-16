@@ -18,9 +18,8 @@ const LItem = styled.li`
     max-width: 680px;
     padding: 0.5rem 1rem 1rem;
     gap: 0.5rem;
-    background: linear-gradient(white, #f5f5f5);
-    color: #000000;
-    border: 1px solid #e5e5e5;
+    background: var(--dark);
+    color: var(--light);
     border-radius: 0.75rem;
 `;
 
@@ -69,7 +68,13 @@ export const ListItem = ({ order }) => {
                     )}
                 </ButtonContainer>
             </FlexContainer>
-            <InfoContainer gap="1rem" p="0.75rem" bg="#e5e5e5" round="0.75rem">
+            <InfoContainer
+                gap="1rem"
+                p="0.75rem"
+                color="var(--dark)"
+                bg="var(--light)"
+                round="0.75rem"
+            >
                 <FlexContainer w="100%" gap="1.25rem" items="center">
                     <FlexContainer w="80px" h="80px">
                         <ImageContainer>

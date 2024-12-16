@@ -13,7 +13,7 @@ const DynamicText = styled.p`
 
 export const SideNav = ({ user, setShowModal, location }) => {
     return (
-        <SideNavContainer p="20px 40px" bg="#262626" color="#ffffff" gap="20px" column>
+        <SideNavContainer p="20px 40px" bg="var(--dark)" color="var(--light)" gap="20px" column>
             <ProfileWrapper>
                 <AvatarContainer>
                     <Avatar src={user.avatar} alt={user.username} />

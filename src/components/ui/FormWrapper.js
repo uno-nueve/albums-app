@@ -9,8 +9,8 @@ const FormWrapper = styled.form`
     gap: 40px;
     align-items: center;
     justify-content: space-between;
-    background-color: #262626;
-    color: #ffffff;
+    background-color: var(--dark);
+    color: var(--light);
     border-radius: 24px;
     position: relative;
 `;

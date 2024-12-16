@@ -9,8 +9,8 @@ import styled from "styled-components";
 
 const ItemContainer = styled(FlexContainer)`
     padding: 0.75rem;
-    background-color: #262626;
-    color: #ffffff;
+    background-color: var(--dark);
+    color: var(--light);
     border-radius: 1.5rem;
     justify-content: space-between;
 `;

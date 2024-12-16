@@ -8,7 +8,7 @@ const LayoutWrapper = styled.main`
     height: 100vh;
 
     @media (max-width: 500px) {
-        background-color: #262626;
+        background-color: var(--dark);
     }
 `;
 

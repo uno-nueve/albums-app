@@ -16,7 +16,7 @@ export const Header = ({ navLinks }) => {
         <HeaderWrapper>
             <HeaderContainer>
                 <Link to="/" style={{ width: "140px" }}>
-                    <Logo />
+                    <Logo fill={"var(--light)"} />
                 </Link>
                 <NavWrapper>
                     {navLinks?.map(({ label, to }) => (

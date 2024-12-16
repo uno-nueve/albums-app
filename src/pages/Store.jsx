@@ -31,7 +31,7 @@ export const Store = () => {
         <CartContext.Provider value={{ showModal, setShowModal }}>
             <FlexContainer h="calc(100vh - 80px)">
                 <GridLayout cols="1fr 3fr">
-                    <FlexContainer p="20px" bg="#262626" color="#ffffff" column>
+                    <FlexContainer p="20px" bg="var(--dark)" color="var(--light)" column>
                         <Filters />
                     </FlexContainer>
                     <ScrollCol>

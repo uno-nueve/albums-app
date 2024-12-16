@@ -6,16 +6,16 @@ const Select = styled.select`
     border: none;
     border-bottom: 1px solid #9e9e9e;
     font-size: 1rem;
-    background: #262626;
-    color: #ffffff;
+    background: var(--dark);
+    color: var(--light);
 
     &:hover {
-        border-color: #ffffff;
+        border-color: var(--light);
     }
 
     &:focus {
         outline: none;
-        border-color: #ffffff;
+        border-color: var(--light);
     }
 `;
 

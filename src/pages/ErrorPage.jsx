@@ -23,8 +23,8 @@ export const ErrorPage = () => {
             justify="center"
             h="100vh"
             gap="1rem"
-            bg="#262626"
-            color="#ffffff"
+            bg="var(--dark)"
+            color="var(--light)"
         >
             <h1>☹️</h1>
             <p>Lo sentimos, ocurrió un error inesperado.</p>

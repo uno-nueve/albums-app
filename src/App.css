@@ -23,6 +23,7 @@
 body {
     font-family: var(--test);
     overflow: hidden;
+    background-color: var(--light);
 }
 
 button,
@@ -39,5 +40,5 @@ a:visited {
 }
 
 .active {
-    background-color: #171717;
+    background-color: #262626;
 }
