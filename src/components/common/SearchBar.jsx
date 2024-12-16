@@ -20,7 +20,6 @@ export const Searchbar = () => {
     const { handleGet, isLoading } = useAxios();
     const dispatch = useDispatch();
     const data = useSelector((state) => state.orders);
-    console.log(data);
 
     const handleClick = async (id) => {
         const res = await handleGet(`${SALES}/${id}`);
@@ -31,7 +30,7 @@ export const Searchbar = () => {
         <FlexContainer
             gap="16px"
             p="20px"
-            w="680px"
+            maxw="680px"
             bg="#262626"
             color="#ffffff"
             round="24px"

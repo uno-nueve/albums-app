@@ -26,7 +26,7 @@ const LItem = styled.li`
 
 export const ListItem = ({ order }) => {
     const { ordenNumero, nombreCliente, monto, album, _id, estado } = order;
-    const { handleDelete, handlePut } = useAxios();
+    const { handleDelete, handlePut, isLoading } = useAxios();
     const location = useLocation();
     const dispatch = useDispatch();
 
@@ -36,7 +36,8 @@ export const ListItem = ({ order }) => {
 
     const handleReturn = async () => {
         const res = await handlePut(`${SALES}/${ordenNumero}/return`);
-        dispatch(setOrder(res));
+        console.log("RETURN", res);
+        dispatch(setOrder(res.venta));
     };
 
     return (
@@ -48,7 +49,9 @@ export const ListItem = ({ order }) => {
                 </FlexContainer>
                 <ButtonContainer h="24px" minw="24px" w="max-content">
                     {location.pathname === "/returns" ? (
-                        <Button onClick={handleReturn}>Devolver</Button>
+                        <Button onClick={handleReturn}>
+                            {isLoading ? "Devolviendo..." : "Devolver"}
+                        </Button>
                     ) : (
                         <Button onClick={() => onDelete(_id)}>
                             <ButtonIcon w="19px">
@@ -61,13 +64,13 @@ export const ListItem = ({ order }) => {
             <FlexContainer gap="16px" p="12px" bg="#e5e5e5" round="12px">
                 <FlexContainer w="80px">
                     <ImageContainer>
-                        <Image src={album.images[0].url} alt={album.titulo} />
+                        <Image src={album?.images[0].url} alt={album.titulo} />
                     </ImageContainer>
                 </FlexContainer>
                 <FlexContainer w="100%" justify="space-between" items="center">
                     <FlexContainer column>
-                        <Text size="20px">{album.titulo}</Text>
-                        <Text>{album.artista}</Text>
+                        <Text size="20px">{album?.titulo}</Text>
+                        <Text>{album?.artista}</Text>
                     </FlexContainer>
                     <FlexContainer gap="60px" items="center">
                         <Text size="20px">${monto}</Text>
