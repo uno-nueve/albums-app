@@ -18,6 +18,21 @@ const AlbumImage = styled(Image)`
     }
 `;
 
+const DetailsContainer = styled(FlexContainer)`
+    @media (max-width: 768px) {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+`;
+
+const InfoContainer = styled(FlexContainer)`
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+    }
+`;
+
 export const AlbumDetails = ({ data, location }) => {
     const { setShowModal } = useContext(CartContext);
     const dispatch = useDispatch();
@@ -29,13 +44,13 @@ export const AlbumDetails = ({ data, location }) => {
     };
 
     return (
-        <FlexContainer gap="30px">
-            <FlexContainer w="500px">
+        <DetailsContainer gap="30px" p="20px">
+            <FlexContainer maxw="420px">
                 <ImageContainer>
                     <AlbumImage src={data?.images[0].url} />
                 </ImageContainer>
             </FlexContainer>
-            <FlexContainer justify="space-between" w="320px" column>
+            <InfoContainer justify="space-between" gap="16px" w="320px" column>
                 <FlexContainer gap="16px" column>
                     <h1>{data?.titulo}</h1>
                     <h2>{data?.artista}</h2>
@@ -50,7 +65,7 @@ export const AlbumDetails = ({ data, location }) => {
                 ) : (
                     <Button onClick={() => setShowModal(true)}>Editar</Button>
                 )}
-            </FlexContainer>
-        </FlexContainer>
+            </InfoContainer>
+        </DetailsContainer>
     );
 };

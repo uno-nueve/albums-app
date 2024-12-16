@@ -9,9 +9,11 @@ import { FlexContainer } from "../ui/FlexContainer";
 import { Text } from "../ui/Text";
 import { CartItem } from "../CartItem";
 
-export const ModalWrapper = styled.aside`
+export const ModalWrapper = styled.div`
     height: 100%;
-    width: 33.4%;
+    width: ${(props) => (props.showmodal ? "33.4%" : "0")};
+    visibility: ${(props) => (props.showmodal ? "visible" : "hidden")};
+    opacity: ${(props) => (props.showmodal ? "1" : "0")};
     padding: 40px 20px;
     position: absolute;
     display: flex;
@@ -19,10 +21,22 @@ export const ModalWrapper = styled.aside`
     align-items: center;
     justify-content: space-between;
     top: 0;
-    right: ${(props) => (props.showmodal ? "0" : "-33.4%")};
+    right: ${(props) => (props.showmodal ? "0" : "24px")};
     z-index: 10;
     transition: 0.3s;
-    background-color: #ffffff;
+    background-color: #fafafa;
+
+    @media (max-width: 1028px) {
+        width: ${(props) => (props.showmodal ? "50%" : "0")};
+    }
+
+    @media (max-width: 880px) {
+        width: ${(props) => (props.showmodal ? "75%" : "0")};
+    }
+
+    @media (max-width: 768px) {
+        width: ${(props) => (props.showmodal ? "100%" : "0")};
+    }
 `;
 
 const StyledLink = styled(Link)`
@@ -35,8 +49,6 @@ const StyledLink = styled(Link)`
 export const CartModal = () => {
     const data = useSelector((state) => state.cart.items);
     const { showModal, setShowModal } = useContext(CartContext);
-
-    console.log("cart", data);
 
     return (
         <ModalWrapper showmodal={showModal}>

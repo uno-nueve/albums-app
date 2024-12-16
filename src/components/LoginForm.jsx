@@ -33,6 +33,14 @@ const ErrorText = styled.span`
     border-radius: 8px;
 `;
 
+const FormLayout = styled(FormWrapper)`
+    @media (max-width: 500px) {
+        min-width: auto;
+        width: 100vw;
+        border-radius: 0;
+    }
+`;
+
 export const LoginForm = () => {
     const { formData, setFormData, handleChange, handleSelection } = useForm({
         email: "",
@@ -48,8 +56,8 @@ export const LoginForm = () => {
     };
 
     return (
-        <FlexContainer w="500px">
-            <FormWrapper>
+        <FlexContainer maxw="500px" w="100%">
+            <FormLayout>
                 <h3>Inicia Sesión como Administrador</h3>
                 <FlexContainer gap="20px" w="100%" column>
                     <label htmlFor="select">
@@ -94,7 +102,7 @@ export const LoginForm = () => {
                     </StyledLink>
                 </FlexContainer>
                 <Button onClick={onSubmit}>Iniciar sesión</Button>
-            </FormWrapper>
+            </FormLayout>
         </FlexContainer>
     );
 };

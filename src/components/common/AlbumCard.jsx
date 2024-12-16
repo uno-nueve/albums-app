@@ -26,9 +26,7 @@ const CardContainer = styled(FlexContainer)`
 `;
 
 const StyledLink = styled(Link)`
-    &:visited {
-        color: #ef4444;
-    }
+    color: #ef4444;
 `;
 
 export const AlbumCard = ({ album }) => {

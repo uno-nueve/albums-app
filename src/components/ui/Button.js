@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button`
     max-height: 40px;
     display: inline-flex;
-    padding: 12px 20px;
+    padding: 12px;
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -30,6 +30,7 @@ export const ButtonIcon = styled.div`
 
 export const ButtonContainer = styled.div`
     min-width: ${(props) => (props.minw ? props.minw : "19px")};
+    max-width: ${(props) => props.maxw && props.maxw};
     width: ${(props) => (props.w ? props.w : "19px")};
     height: ${(props) => (props.h ? props.h : "19px")};
     position: ${(props) => props.absolute && "absolute"};

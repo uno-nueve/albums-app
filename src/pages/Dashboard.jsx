@@ -17,6 +17,12 @@ const ScrollCol = styled(GridCol)`
     height: calc(100vh - 80px);
 `;
 
+const GridLayout = styled(GridColsWrapper)`
+    @media (max-width: 768px) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+`;
+
 export const Dashboard = () => {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
@@ -32,13 +38,13 @@ export const Dashboard = () => {
         <ModalContext.Provider value={{ showModal, setShowModal }}>
             <CartContext.Provider value={{ showModal, setShowModal }}>
                 <FlexContainer h="calc(100vh - 80px)">
-                    <GridColsWrapper cols="1fr 3fr">
+                    <GridLayout cols="1fr 3fr">
                         <SideNav setShowModal={setShowModal} user={user} location={location} />
                         <ScrollCol>
                             <Outlet />
                             <Modal />
                         </ScrollCol>
-                    </GridColsWrapper>
+                    </GridLayout>
                 </FlexContainer>
             </CartContext.Provider>
         </ModalContext.Provider>

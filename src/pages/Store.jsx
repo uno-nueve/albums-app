@@ -15,21 +15,31 @@ const ScrollCol = styled(GridCol)`
     height: calc(100vh - 80px);
 `;
 
+const GridLayout = styled(GridColsWrapper)`
+    position: relative;
+
+    @media (max-width: 768px) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+`;
+
 export const Store = () => {
     useTitle("Albums");
     const [showModal, setShowModal] = useState(false);
 
     return (
         <CartContext.Provider value={{ showModal, setShowModal }}>
-            <GridColsWrapper cols="1fr 3fr">
-                <FlexContainer p="20px 40px" bg="#262626" color="#ffffff" column>
-                    <Filters />
-                </FlexContainer>
-                <ScrollCol>
-                    <Outlet />
-                </ScrollCol>
-                <CartModal />
-            </GridColsWrapper>
+            <FlexContainer h="calc(100vh - 80px)">
+                <GridLayout cols="1fr 3fr">
+                    <FlexContainer p="20px" bg="#262626" color="#ffffff" column>
+                        <Filters />
+                    </FlexContainer>
+                    <ScrollCol>
+                        <Outlet />
+                    </ScrollCol>
+                    <CartModal />
+                </GridLayout>
+            </FlexContainer>
         </CartContext.Provider>
     );
 };

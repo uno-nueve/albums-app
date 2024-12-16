@@ -3,7 +3,7 @@ import Input from "./ui/Input";
 import FormWrapper from "./ui/FormWrapper";
 import InputGroup from "./ui/InputGroup";
 import styled from "styled-components";
-import { Button } from "./ui/Button";
+import { Button, ButtonContainer } from "./ui/Button";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
 import { ALBUMS, SEARCH_ALBUM } from "../utils/urls";
@@ -17,6 +17,12 @@ const FormLayout = styled(FormWrapper)`
     padding: 0;
     background-color: transparent;
     border: none;
+`;
+
+const InputLayout = styled(InputGroup)`
+    @media (max-width: 768px) {
+        flex-direction: row;
+    }
 `;
 
 export const Filters = () => {
@@ -44,7 +50,7 @@ export const Filters = () => {
                 FILTRAR
             </Text>
             <FormLayout>
-                <InputGroup>
+                <InputLayout>
                     <Select id="param" name="param" onChange={handleChange}>
                         <option value="" hidden></option>
                         <option value="artista">Artista</option>
@@ -74,12 +80,12 @@ export const Filters = () => {
                     {formData.value && (
                         <Button onClick={(e) => handleClean(e)}>Limpiar filtros</Button>
                     )}
-                    {error && (
-                        <ErrorText color="red">
-                            No hay albums que coincidan con los parámetros de búsqueda
-                        </ErrorText>
-                    )}
-                </InputGroup>
+                </InputLayout>
+                {error && (
+                    <ErrorText color="red">
+                        No hay albums que coincidan con los parámetros de búsqueda
+                    </ErrorText>
+                )}
             </FormLayout>
         </FlexContainer>
     );

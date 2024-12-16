@@ -18,17 +18,14 @@ const ModalContainer = styled.div`
     gap: 40px;
     position: absolute;
     left: 0;
-    right: 0;
     top: 0;
-    bottom: 0;
-    margin: auto;
     visibility: ${(props) => (props.showmodal ? "visible" : "hidden")};
     opacity: ${(props) => (props.showmodal ? "100%" : "0%")};
     z-index: 10;
     transition: 0.3s;
 
-    &:backdrop {
-        background: tomato;
+    @media (max-width: 500px) {
+        justify-content: flex-start;
     }
 `;
 

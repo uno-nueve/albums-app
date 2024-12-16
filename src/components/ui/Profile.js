@@ -18,6 +18,5 @@ export const ProfileWrapper = styled.div`
     align-items: center;
     gap: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #9e9e9e;
     font-size: 1.25rem;
 `;

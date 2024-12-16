@@ -10,6 +10,7 @@ export const FlexContainer = styled.div`
     height: ${(props) => props.h && props.h};
     width: ${(props) => props.w && props.w};
     max-width: ${(props) => props.maxw && props.maxw};
+    max-height: ${(props) => props.maxh && props.maxh};
     background-color: ${(props) => props.bg && props.bg};
     color: ${(props) => props.color && props.color};
     border-bottom: ${(props) => props.borderb && props.borderb};

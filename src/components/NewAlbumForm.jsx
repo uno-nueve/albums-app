@@ -10,6 +10,16 @@ import { useDispatch } from "react-redux";
 import { addAlbum } from "../state/albums/albumsSlice";
 import { useContext } from "react";
 import { ModalContext } from "../contexts/ModalContext";
+import styled from "styled-components";
+
+const FormLayout = styled(FormWrapper)`
+    @media (max-width: 500px) {
+        min-width: auto;
+        width: 100vw;
+        height: calc(100vh - 200px);
+        border-radius: 0;
+    }
+`;
 
 export const NewAlbumForm = () => {
     const initialForm = {
@@ -42,7 +52,7 @@ export const NewAlbumForm = () => {
 
     return (
         <>
-            <FormWrapper>
+            <FormLayout>
                 <h3>Nuevo Album</h3>
                 {error && <p>{error}</p>}
                 <InputGroup>
@@ -75,7 +85,7 @@ export const NewAlbumForm = () => {
                     </label>
                 </InputGroup>
                 <Button onClick={onSubmit}>Añadir</Button>
-            </FormWrapper>
+            </FormLayout>
         </>
     );
 };

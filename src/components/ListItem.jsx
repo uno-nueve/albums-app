@@ -24,6 +24,14 @@ const LItem = styled.li`
     border-radius: 12px;
 `;
 
+const InfoContainer = styled(FlexContainer)`
+    @media (max-width: 500px) {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+    }
+`;
+
 export const ListItem = ({ order }) => {
     const { ordenNumero, nombreCliente, monto, album, _id, estado } = order;
     const { handleDelete, handlePut, isLoading } = useAxios();
@@ -43,10 +51,10 @@ export const ListItem = ({ order }) => {
     return (
         <LItem>
             <FlexContainer justify="space-between" items="center">
-                <FlexContainer gap="24px" items="center">
-                    <Text size="20px">ORDEN #{ordenNumero}</Text>
-                    <Text>{nombreCliente}</Text>
-                </FlexContainer>
+                <InfoContainer gap="12px" items="center">
+                    <Text size="18px">ORDEN #{ordenNumero}</Text>
+                    <Text size="14px">{nombreCliente}</Text>
+                </InfoContainer>
                 <ButtonContainer h="24px" minw="24px" w="max-content">
                     {location.pathname === "/returns" ? (
                         <Button onClick={handleReturn}>
@@ -61,23 +69,25 @@ export const ListItem = ({ order }) => {
                     )}
                 </ButtonContainer>
             </FlexContainer>
-            <FlexContainer gap="16px" p="12px" bg="#e5e5e5" round="12px">
-                <FlexContainer w="80px">
-                    <ImageContainer>
-                        <Image src={album?.images[0].url} alt={album.titulo} />
-                    </ImageContainer>
-                </FlexContainer>
-                <FlexContainer w="100%" justify="space-between" items="center">
+            <InfoContainer gap="16px" p="12px" bg="#e5e5e5" round="12px">
+                <FlexContainer w="100%" gap="20px" items="center">
+                    <FlexContainer w="80px" h="80px">
+                        <ImageContainer>
+                            <Image src={album?.images[0].url} alt={album.titulo} />
+                        </ImageContainer>
+                    </FlexContainer>
                     <FlexContainer column>
                         <Text size="20px">{album?.titulo}</Text>
                         <Text>{album?.artista}</Text>
                     </FlexContainer>
-                    <FlexContainer gap="60px" items="center">
+                </FlexContainer>
+                <FlexContainer w="100%" justify="flex-end" items="center">
+                    <FlexContainer gap="20px" justify="space-between" items="center">
                         <Text size="20px">${monto}</Text>
                         <Pill status={estado}>{estado}</Pill>
                     </FlexContainer>
                 </FlexContainer>
-            </FlexContainer>
+            </InfoContainer>
         </LItem>
     );
 };

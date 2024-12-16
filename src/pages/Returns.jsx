@@ -7,7 +7,7 @@ import { useTitle } from "../hooks/useTitle";
 const ImageCol = styled(FlexContainer)`
     padding: 0;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1080px) {
         display: none;
     }
 `;
@@ -18,11 +18,17 @@ const BgImage = styled.img`
     object-fit: cover;
 `;
 
+const GridLayout = styled(GridColsWrapper)`
+    @media (max-width: 1080px) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+`;
+
 export const Returns = () => {
     useTitle("Devoluciones");
     return (
         <FlexContainer h="calc(100vh - 80px)">
-            <GridColsWrapper cols="repeat(2, minmax(0, 1fr))">
+            <GridLayout cols="repeat(2, minmax(0, 1fr))">
                 <FlexContainer gap="20px" p="20px" column>
                     <FlexContainer p="0 20px">
                         <h1>DEVOLUCIONES</h1>
@@ -35,7 +41,7 @@ export const Returns = () => {
                         alt="abstract blob"
                     />
                 </ImageCol>
-            </GridColsWrapper>
+            </GridLayout>
         </FlexContainer>
     );
 };
