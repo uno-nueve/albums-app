@@ -11,8 +11,14 @@ import { ListItem } from "../ListItem";
 import { FlexContainer } from "../ui/FlexContainer";
 
 const InlineButton = styled(Button)`
-    max-width: 200px;
+    max-width: max-content;
     gap: 16px;
+`;
+
+const DynamicText = styled.p`
+    @media (max-width: 480px) {
+        display: none;
+    }
 `;
 
 export const Searchbar = () => {
@@ -29,7 +35,7 @@ export const Searchbar = () => {
     return (
         <FlexContainer
             gap="16px"
-            p="20px"
+            p="12px"
             maxw="680px"
             bg="#262626"
             color="#ffffff"
@@ -49,7 +55,7 @@ export const Searchbar = () => {
                     </label>
                 </FlexContainer>
                 <InlineButton onClick={() => handleClick(formData.search)}>
-                    Buscar
+                    <DynamicText>Buscar</DynamicText>
                     <ButtonIcon w="16px" h="16px">
                         <SearchMd />
                     </ButtonIcon>

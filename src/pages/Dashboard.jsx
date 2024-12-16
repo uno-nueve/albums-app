@@ -15,11 +15,16 @@ const ScrollCol = styled(GridCol)`
     border: none;
     overflow-y: scroll;
     height: calc(100vh - 80px);
+
+    @media (max-width: 768px) {
+        height: calc(100vh - 160px);
+    }
 `;
 
 const GridLayout = styled(GridColsWrapper)`
     @media (max-width: 768px) {
         grid-template-columns: minmax(0, 1fr);
+        height: 100%;
     }
 `;
 

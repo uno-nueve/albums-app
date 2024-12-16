@@ -49,7 +49,7 @@ export const Catalog = () => {
                     </ButtonContainer>
                 )}
             </FlexContainer>
-            <GridLayout cols="repeat(4, minmax(0, 1fr))">
+            <GridLayout cols="repeat(auto-fit, minmax(20.5ch, 1fr))">
                 {data?.map((album) => (
                     <AlbumCard key={album._id} album={album} />
                 ))}

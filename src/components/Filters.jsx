@@ -3,7 +3,7 @@ import Input from "./ui/Input";
 import FormWrapper from "./ui/FormWrapper";
 import InputGroup from "./ui/InputGroup";
 import styled from "styled-components";
-import { Button, ButtonContainer } from "./ui/Button";
+import { Button, ButtonIcon } from "./ui/Button";
 import { useAxios } from "../hooks/useAxios";
 import { useForm } from "../hooks/useForm";
 import { ALBUMS, SEARCH_ALBUM } from "../utils/urls";
@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { indexAlbums } from "../state/albums/albumsSlice";
 import { ErrorText, Text } from "./ui/Text";
 import { FlexContainer } from "./ui/FlexContainer";
+import { XClose } from "./ui/svgs";
 
 const FormLayout = styled(FormWrapper)`
     min-width: 100%;
@@ -22,6 +23,19 @@ const FormLayout = styled(FormWrapper)`
 const InputLayout = styled(InputGroup)`
     @media (max-width: 768px) {
         flex-direction: row;
+        gap: 16px;
+    }
+`;
+
+const DynamicText = styled.p`
+    @media (max-width: 540px) {
+        display: none;
+    }
+`;
+
+const InlineButton = styled(Button)`
+    @media (max-width: 768px) {
+        width: max-content;
     }
 `;
 
@@ -76,9 +90,14 @@ export const Filters = () => {
                                 <option value="Agotado">Agotado</option>
                             </Select>
                         ))}
-                    <Button onClick={(e) => handleSubmit(e)}>Filtrar</Button>
+                    <InlineButton onClick={(e) => handleSubmit(e)}>Filtrar</InlineButton>
                     {formData.value && (
-                        <Button onClick={(e) => handleClean(e)}>Limpiar filtros</Button>
+                        <InlineButton onClick={(e) => handleClean(e)}>
+                            <DynamicText>Limpiar</DynamicText>
+                            <ButtonIcon>
+                                <XClose />
+                            </ButtonIcon>
+                        </InlineButton>
                     )}
                 </InputLayout>
                 {error && (

@@ -65,26 +65,29 @@ const MobileNav = styled.div`
     left: 0;
     z-index: 50;
     display: none;
-    padding: 20px 40px;
+    padding: 20px;
     transition: 0.3s;
 
     @media (max-width: 768px) {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        gap: 8px;
     }
 `;
 
 export const Header = ({ navLinks }) => {
     const [showModal, setShowModal] = useState(false);
 
+    const handleNavigate = () => {
+        setTimeout(() => setShowModal(false), 300);
+    };
+
     return (
         <HeaderWrapper>
             <HeaderContainer>
-                <Link to="/">
-                    <div style={{ height: "40px" }}>
-                        <Logo />
-                    </div>
+                <Link to="/" style={{ width: "140px" }}>
+                    <Logo />
                 </Link>
                 <NavWrapper>
                     {navLinks?.map(({ label, to }) => (
@@ -98,7 +101,7 @@ export const Header = ({ navLinks }) => {
                 </MenuButton>
                 <MobileNav showmodal={showModal}>
                     {navLinks?.map(({ label, to }) => (
-                        <StyledNavLink key={to} to={to}>
+                        <StyledNavLink key={to} to={to} onClick={handleNavigate}>
                             {label}
                         </StyledNavLink>
                     ))}

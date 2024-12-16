@@ -22,6 +22,7 @@ const SideNavContainer = styled(FlexContainer)`
         flex-direction: row;
         padding: 20px;
         align-items: center;
+        height: 80px;
     }
 `;
 
@@ -35,12 +36,12 @@ const NavContainer = styled(FlexContainer)`
         border-top: none;
         border-left: 1px solid #9e9e9e;
         border-right: 1px solid #9e9e9e;
-        width: 100%;
+        padding: 0;
     }
 `;
 
 const DynamicText = styled.p`
-    @media (max-width: 80px) {
+    @media (max-width: 800px) {
         display: none;
     }
 `;

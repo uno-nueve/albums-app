@@ -61,7 +61,7 @@ export const AlbumCard = ({ album }) => {
 
     return (
         <CardContainer>
-            <Link to={`/dashboard/catalog/${_id}`}>
+            <StyledLink to={`/dashboard/catalog/${_id}`}>
                 <FlexContainer gap="16px" padding="8px" column>
                     <ImageContainer>
                         <Image src={images[0].url} alt={titulo} />
@@ -73,7 +73,7 @@ export const AlbumCard = ({ album }) => {
                         <Text color="#737373">{artista}</Text>
                     </div>
                 </FlexContainer>
-            </Link>
+            </StyledLink>
         </CardContainer>
     );
 };

@@ -19,4 +19,8 @@ export const ProfileWrapper = styled.div`
     gap: 20px;
     padding-bottom: 20px;
     font-size: 1.25rem;
+
+    @media (max-width: 768px) {
+        padding-bottom: 0;
+    }
 `;
