@@ -15,12 +15,13 @@ const LItem = styled.li`
     list-style: none;
     display: flex;
     flex-direction: column;
-    max-width: 720px;
-    padding: 8px;
+    max-width: 680px;
+    padding: 8px 16px 16px;
     gap: 8px;
-    background-color: #262626;
-    color: #ffffff;
-    border-radius: 16px;
+    background: linear-gradient(white, #f5f5f5);
+    color: #000000;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
 `;
 
 export const ListItem = ({ order }) => {
@@ -40,7 +41,7 @@ export const ListItem = ({ order }) => {
 
     return (
         <LItem>
-            <FlexContainer justify="space-between" items="center" p="0 16px">
+            <FlexContainer justify="space-between" items="center">
                 <FlexContainer gap="24px" items="center">
                     <Text size="20px">ORDEN #{ordenNumero}</Text>
                     <Text>{nombreCliente}</Text>
@@ -57,7 +58,7 @@ export const ListItem = ({ order }) => {
                     )}
                 </ButtonContainer>
             </FlexContainer>
-            <FlexContainer gap="16px" p="16px" bg="#525252" color="#ffffff" round="8px">
+            <FlexContainer gap="16px" p="12px" bg="#e5e5e5" round="12px">
                 <FlexContainer w="80px">
                     <ImageContainer>
                         <Image src={album.images[0].url} alt={album.titulo} />
@@ -68,7 +69,7 @@ export const ListItem = ({ order }) => {
                         <Text size="20px">{album.titulo}</Text>
                         <Text>{album.artista}</Text>
                     </FlexContainer>
-                    <FlexContainer gap="80px" items="center">
+                    <FlexContainer gap="60px" items="center">
                         <Text size="20px">${monto}</Text>
                         <Pill status={estado}>{estado}</Pill>
                     </FlexContainer>

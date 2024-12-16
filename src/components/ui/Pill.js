@@ -5,6 +5,7 @@ export const Pill = styled.div`
     text-align: center;
     padding: 8px 16px;
     border-radius: 16px;
-    background-color: ${(props) => (props.status === "Devuelto" ? "#b91c1c" : "#047857")};
+    background-color: ${(props) =>
+        props.status === "Devuelto" || props.status === "Agotado" ? "#b91c1c" : "#047857"};
     color: white;
 `;

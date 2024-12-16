@@ -28,7 +28,15 @@ export const Searchbar = () => {
     };
 
     return (
-        <FlexContainer gap="8px" p="20px" bg="#262626" round="24px" column>
+        <FlexContainer
+            gap="16px"
+            p="20px"
+            w="680px"
+            bg="#262626"
+            color="#ffffff"
+            round="24px"
+            column
+        >
             <FlexContainer items="center">
                 <FlexContainer gap="20px" w="100%" p="0 16px" column>
                     <label htmlFor="search">

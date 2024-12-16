@@ -48,7 +48,7 @@ export const LoginForm = () => {
     };
 
     return (
-        <>
+        <FlexContainer w="500px">
             <FormWrapper>
                 <h3>Inicia Sesión como Administrador</h3>
                 <FlexContainer gap="20px" w="100%" column>
@@ -95,6 +95,6 @@ export const LoginForm = () => {
                 </FlexContainer>
                 <Button onClick={onSubmit}>Iniciar sesión</Button>
             </FormWrapper>
-        </>
+        </FlexContainer>
     );
 };

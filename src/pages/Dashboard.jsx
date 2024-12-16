@@ -9,6 +9,13 @@ import { FlexContainer } from "../components/ui/FlexContainer.js";
 import { useTitle } from "../hooks/useTitle";
 import { CartContext } from "../contexts/CartContext.js";
 import { SideNav } from "../components/common/SideNav.jsx";
+import styled from "styled-components";
+
+const ScrollCol = styled(GridCol)`
+    border: none;
+    overflow-y: scroll;
+    height: calc(100vh - 80px);
+`;
 
 export const Dashboard = () => {
     const [showModal, setShowModal] = useState(false);
@@ -27,10 +34,10 @@ export const Dashboard = () => {
                 <FlexContainer h="calc(100vh - 80px)">
                     <GridColsWrapper cols="1fr 3fr">
                         <SideNav setShowModal={setShowModal} user={user} location={location} />
-                        <GridCol>
+                        <ScrollCol>
                             <Outlet />
                             <Modal />
-                        </GridCol>
+                        </ScrollCol>
                     </GridColsWrapper>
                 </FlexContainer>
             </CartContext.Provider>

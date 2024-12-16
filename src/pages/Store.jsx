@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { FlexContainer } from "../components/ui/FlexContainer";
 
 const ScrollCol = styled(GridCol)`
+    border: none;
     overflow-y: scroll;
     height: calc(100vh - 80px);
 `;

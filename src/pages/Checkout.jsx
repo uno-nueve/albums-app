@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { CheckoutForm } from "../components/CheckoutForm";
+import { FlexContainer } from "../components/ui/FlexContainer";
+import { CartItem } from "../components/CartItem";
 
-const ImageCol = styled(GridCol)`
+const ImageCol = styled(FlexContainer)`
     padding: 0;
 
     @media (max-width: 768px) {
@@ -21,30 +21,19 @@ const BgImage = styled.img`
 
 export const Checkout = () => {
     const data = useSelector((state) => state.cart.items);
-    const [response, setResponse] = useState(null);
-    console.log("HERE", response);
 
     return (
-        <>
+        <FlexContainer h="calc(100vh - 80px)">
             <GridColsWrapper cols="repeat(2, minmax(0, 1fr))">
-                <GridCol>
-                    <h3>Finalizar compra</h3>
-                    <div>
-                        Tu carrito:
-                        {data?.map((item) => (
-                            <span key={item._id}>{item.titulo}</span>
+                <FlexContainer p="20px" gap="20px" column>
+                    <h1>FINALIZAR COMPRA</h1>
+                    <FlexContainer gap="20px" w="680px" column>
+                        {data?.map((album) => (
+                            <CartItem album={album} key={album._id} />
                         ))}
-                    </div>
-                    <CheckoutForm setResponse={setResponse} />
-                    {response &&
-                        response?.map(({ venta, album }) => (
-                            <div key={venta?._id}>
-                                <h3>Compra exitosa</h3>
-                                Orden #{venta?.ordenNumero}
-                                Compraste {album?.titulo} de {album?.artista}
-                            </div>
-                        ))}
-                </GridCol>
+                        <CheckoutForm />
+                    </FlexContainer>
+                </FlexContainer>
                 <ImageCol>
                     <BgImage
                         src="https://images.unsplash.com/photo-1565619624098-cf4168a7cd9d?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -52,6 +41,6 @@ export const Checkout = () => {
                     />
                 </ImageCol>
             </GridColsWrapper>
-        </>
+        </FlexContainer>
     );
 };
