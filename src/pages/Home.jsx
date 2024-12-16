@@ -52,6 +52,15 @@ const BgImage = styled.img`
     object-fit: cover;
 `;
 
+const Heading1 = styled.h1`
+    font-size: 3rem;
+`;
+
+const Heading2 = styled.h2`
+    font-size: 1.5rem;
+    font-weight: 400;
+`;
+
 export const Home = () => {
     const user = useContext(UserContext);
     useTitle("Viniltory");
@@ -65,7 +74,10 @@ export const Home = () => {
                     />
                 </ImageCol>
                 <DisplayCol>
-                    <h1>Hola Mundo</h1>
+                    <FlexContainer gap="1rem" items="flex-end" w="100%" column>
+                        <Heading1>Tu música. Por siempre</Heading1>
+                        <Heading2>Comprá una vez, descargá las que quieras</Heading2>
+                    </FlexContainer>
                     {user ? (
                         <StyledLink to="/dashboard">
                             <InlineButton>
