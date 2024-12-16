@@ -23,7 +23,7 @@ const FormLayout = styled(FormWrapper)`
 const InputLayout = styled(InputGroup)`
     @media (max-width: 768px) {
         flex-direction: row;
-        gap: 16px;
+        gap: 1rem;
     }
 `;
 
@@ -59,7 +59,7 @@ export const Filters = () => {
     };
 
     return (
-        <FlexContainer gap="8px" column>
+        <FlexContainer gap="0.5rem" column>
             <Text color="#ef4444" weight="600">
                 FILTRAR
             </Text>

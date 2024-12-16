@@ -3,12 +3,12 @@ import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
-import { ModalContext } from "../contexts/ModalContext.js";
-import { Modal } from "../components/common/Modal.jsx";
-import { FlexContainer } from "../components/ui/FlexContainer.js";
+import { ModalContext } from "../contexts/ModalContext";
+import { Modal } from "../components/common/Modal/Modal";
+import { FlexContainer } from "../components/ui/FlexContainer";
 import { useTitle } from "../hooks/useTitle";
-import { CartContext } from "../contexts/CartContext.js";
-import { SideNav } from "../components/common/SideNav.jsx";
+import { CartContext } from "../contexts/CartContext";
+import { SideNav } from "../components/common/SideNav/SideNav";
 import styled from "styled-components";
 
 const ScrollCol = styled(GridCol)`

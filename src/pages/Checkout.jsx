@@ -25,9 +25,9 @@ export const Checkout = () => {
     return (
         <FlexContainer h="calc(100vh - 80px)">
             <GridColsWrapper cols="repeat(2, minmax(0, 1fr))">
-                <FlexContainer p="20px" gap="20px" column>
+                <FlexContainer p="1.25rem" gap="1.25rem" column>
                     <h1>FINALIZAR COMPRA</h1>
-                    <FlexContainer gap="20px" w="680px" column>
+                    <FlexContainer gap="1.25rem" w="680px" column>
                         {data?.map((album) => (
                             <CartItem album={album} key={album._id} />
                         ))}

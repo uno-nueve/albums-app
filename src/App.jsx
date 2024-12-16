@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import "./App.css";
-import { Header } from "./components/common/Header";
+import { Header } from "./components/common/Header/Header";
 import { UserContext } from "./contexts/UserContext";
 import { useEffect, useState } from "react";
 

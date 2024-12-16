@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 import { ALBUMS } from "../utils/urls";
 import { FlexContainer } from "./ui/FlexContainer";
 import { useState } from "react";
-import { Text } from "./ui/Text";
 import { useTitle } from "../hooks/useTitle";
+import { Toast } from "./Toast";
 
 export const CheckoutForm = () => {
     const [response, setResponse] = useState(null);
@@ -27,9 +27,9 @@ export const CheckoutForm = () => {
     };
 
     return (
-        <FlexContainer gap="20px" column>
+        <FlexContainer gap="1.25rem" column>
             <FormWrapper>
-                <FlexContainer gap="20px" w="100%" column>
+                <FlexContainer gap="1.25rem" w="100%" column>
                     <label htmlFor="nombreCliente">
                         <Input
                             id="nombreCliente"
@@ -54,27 +54,7 @@ export const CheckoutForm = () => {
             {isLoading && <div>Loading...</div>}
             {response &&
                 response?.map(({ venta, album }) => (
-                    <FlexContainer
-                        key={venta?._id}
-                        gap="8px"
-                        bg="#86efac"
-                        p="8px 12px"
-                        round="12px"
-                        color="#166534"
-                        column
-                    >
-                        <FlexContainer gap="16px" items="center">
-                            <Text size="1.125rem" weight="600">
-                                Compra exitosa
-                            </Text>
-                            Orden #{venta?.ordenNumero}
-                        </FlexContainer>
-                        <FlexContainer>
-                            <Text size="0.85rem">
-                                Compraste: {album?.titulo} de {album?.artista}
-                            </Text>
-                        </FlexContainer>
-                    </FlexContainer>
+                    <Toast venta={venta} album={album} key={venta?._id} />
                 ))}
         </FlexContainer>
     );

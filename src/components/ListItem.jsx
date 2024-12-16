@@ -16,12 +16,12 @@ const LItem = styled.li`
     display: flex;
     flex-direction: column;
     max-width: 680px;
-    padding: 8px 16px 16px;
-    gap: 8px;
+    padding: 0.5rem 1rem 1rem;
+    gap: 0.5rem;
     background: linear-gradient(white, #f5f5f5);
     color: #000000;
     border: 1px solid #e5e5e5;
-    border-radius: 12px;
+    border-radius: 0.75rem;
 `;
 
 const InfoContainer = styled(FlexContainer)`
@@ -51,39 +51,39 @@ export const ListItem = ({ order }) => {
     return (
         <LItem>
             <FlexContainer justify="space-between" items="center">
-                <InfoContainer gap="12px" items="center">
-                    <Text size="18px">ORDEN #{ordenNumero}</Text>
-                    <Text size="14px">{nombreCliente}</Text>
+                <InfoContainer gap="0.75rem" items="center">
+                    <Text size="1.125rem">ORDEN #{ordenNumero}</Text>
+                    <Text size="0.875rem">{nombreCliente}</Text>
                 </InfoContainer>
-                <ButtonContainer h="24px" minw="24px" w="max-content">
+                <ButtonContainer h="1.5rem" minw="1.5rem" w="max-content">
                     {location.pathname === "/returns" ? (
                         <Button onClick={handleReturn}>
                             {isLoading ? "Devolviendo..." : "Devolver"}
                         </Button>
                     ) : (
                         <Button onClick={() => onDelete(_id)}>
-                            <ButtonIcon w="19px">
+                            <ButtonIcon w="1.125rem">
                                 <XClose />
                             </ButtonIcon>
                         </Button>
                     )}
                 </ButtonContainer>
             </FlexContainer>
-            <InfoContainer gap="16px" p="12px" bg="#e5e5e5" round="12px">
-                <FlexContainer w="100%" gap="20px" items="center">
+            <InfoContainer gap="1rem" p="0.75rem" bg="#e5e5e5" round="0.75rem">
+                <FlexContainer w="100%" gap="1.25rem" items="center">
                     <FlexContainer w="80px" h="80px">
                         <ImageContainer>
                             <Image src={album?.images[0].url} alt={album.titulo} />
                         </ImageContainer>
                     </FlexContainer>
                     <FlexContainer column>
-                        <Text size="20px">{album?.titulo}</Text>
+                        <Text size="1.25rem">{album?.titulo}</Text>
                         <Text>{album?.artista}</Text>
                     </FlexContainer>
                 </FlexContainer>
                 <FlexContainer w="100%" justify="flex-end" items="center">
-                    <FlexContainer gap="20px" justify="space-between" items="center">
-                        <Text size="20px">${monto}</Text>
+                    <FlexContainer gap="1.25rem" justify="space-between" items="center">
+                        <Text size="1.25rem">${monto}</Text>
                         <Pill status={estado}>{estado}</Pill>
                     </FlexContainer>
                 </FlexContainer>

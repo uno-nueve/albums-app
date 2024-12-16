@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import GridCol from "../components/ui/GridCol";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import { CartContext } from "../contexts/CartContext";
-import { CartModal } from "../components/common/CartModal";
+import { CartModal } from "../components/common/CartModal/CartModal";
 import { useState } from "react";
 import { Filters } from "../components/Filters";
 import { useTitle } from "../hooks/useTitle";

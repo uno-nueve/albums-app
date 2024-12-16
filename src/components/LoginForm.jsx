@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import FormWrapper from "./ui/FormWrapper";
 import Select from "./ui/Select";
@@ -9,28 +9,14 @@ import { Button } from "./ui/Button";
 import { useAuth } from "../hooks/useAuth";
 import { useForm } from "../hooks/useForm";
 import { FlexContainer } from "./ui/FlexContainer";
+import { ToastedLink } from "./ui/Link";
+import { ErrorToast } from "./Toast";
 
 const IconContainer = styled.div`
-    width: 20px;
+    width: 1.25rem;
     heigth: 100%;
     display: flex;
     align-items: center;
-`;
-
-const StyledLink = styled(Link)`
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    color: #ef4444;
-`;
-
-const ErrorText = styled.span`
-    background-color: #fecaca;
-    width: max-content;
-    padding: 4px 8px;
-    color: #b91c1c;
-    border-radius: 8px;
 `;
 
 const FormLayout = styled(FormWrapper)`
@@ -59,7 +45,7 @@ export const LoginForm = () => {
         <FlexContainer maxw="500px" w="100%">
             <FormLayout>
                 <h3>Inicia Sesión como Administrador</h3>
-                <FlexContainer gap="20px" w="100%" column>
+                <FlexContainer gap="1.25rem" w="100%" column>
                     <label htmlFor="select">
                         Usuarios predeterminados
                         <Select id="select" name="select" onChange={handleSelection}>
@@ -93,13 +79,13 @@ export const LoginForm = () => {
                             onChange={handleChange}
                         />
                     </label>
-                    {error && <ErrorText>{error}</ErrorText>}
-                    <StyledLink to="/">
+                    {error && <ErrorToast>{error}</ErrorToast>}
+                    <ToastedLink to="/">
                         <IconContainer>
                             <ArrowNarrowLeft />
                         </IconContainer>
                         Volver a la página principal
-                    </StyledLink>
+                    </ToastedLink>
                 </FlexContainer>
                 <Button onClick={onSubmit}>Iniciar sesión</Button>
             </FormLayout>

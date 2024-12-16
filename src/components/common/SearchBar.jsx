@@ -12,7 +12,7 @@ import { FlexContainer } from "../ui/FlexContainer";
 
 const InlineButton = styled(Button)`
     max-width: max-content;
-    gap: 16px;
+    gap: 1rem;
 `;
 
 const DynamicText = styled.p`
@@ -34,16 +34,16 @@ export const Searchbar = () => {
 
     return (
         <FlexContainer
-            gap="16px"
-            p="12px"
+            gap="1rem"
+            p="0.75rem"
             maxw="680px"
             bg="#262626"
             color="#ffffff"
-            round="24px"
+            round="1.5rem"
             column
         >
             <FlexContainer items="center">
-                <FlexContainer gap="20px" w="100%" p="0 16px" column>
+                <FlexContainer gap="1.25rem" w="100%" p="0 1rem" column>
                     <label htmlFor="search">
                         <Input
                             id="search"
@@ -56,7 +56,7 @@ export const Searchbar = () => {
                 </FlexContainer>
                 <InlineButton onClick={() => handleClick(formData.search)}>
                     <DynamicText>Buscar</DynamicText>
-                    <ButtonIcon w="16px" h="16px">
+                    <ButtonIcon w="1rem" h="1rem">
                         <SearchMd />
                     </ButtonIcon>
                 </InlineButton>

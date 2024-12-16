@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { ALBUMS } from "../utils/urls";
 import { FlexContainer } from "../components/ui/FlexContainer";
 import { AlbumDetails } from "../components/AlbumDetails";
-import { CartModal } from "../components/common/CartModal";
+import { CartModal } from "../components/common/CartModal/CartModal";
 import { CartContext } from "../contexts/CartContext";
 import { ModalContext } from "../contexts/ModalContext";
-import { Modal } from "../components/common/Modal";
+import { Modal } from "../components/common/Modal/Modal";
 
 export const Details = () => {
     const [data, setData] = useState();

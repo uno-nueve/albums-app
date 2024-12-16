@@ -1,10 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
-
+@font-face {
+    font-family: Space Grotesk;
+    src: url("/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+}
 :root {
     --dm-sans: DM Sans;
     --varela-round: Varela Round;
+    --test: Space Grotesk;
     --main-text: black;
+    --light: #ffffe3;
+    --dark: #10100e;
+    --accent: #ff6000;
 }
 
 * {
@@ -14,13 +21,13 @@
 }
 
 body {
-    font-family: var(--dm-sans);
+    font-family: var(--test);
     overflow: hidden;
 }
 
 button,
 input {
-    font-family: var(--dm-sans);
+    font-family: var(--test);
 }
 
 a {

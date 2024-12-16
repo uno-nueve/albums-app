@@ -22,7 +22,7 @@ const DisplayCol = styled(FlexContainer)`
 
     @media (max-width: 768px) {
         grid-template-columns: minmax(0, 1fr);
-        background-image: url("https://images.unsplash.com/photo-1722868453565-dfa553dacc95?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-image: url("/photo-1722868453565-dfa553dacc95.jpg");
     }
 `;
 
@@ -59,10 +59,7 @@ export const Home = () => {
         <FlexContainer h="calc(100vh - 80px)">
             <GridLayout cols="repeat(2, minmax(0, 1fr))">
                 <ImageCol>
-                    <BgImage
-                        src="https://images.unsplash.com/photo-1722868453565-dfa553dacc95?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="abstract blob"
-                    />
+                    <BgImage src="/photo-1722868453565-dfa553dacc95.jpg" alt="abstract blob" />
                 </ImageCol>
                 <DisplayCol>
                     <h1>Hola Mundo</h1>

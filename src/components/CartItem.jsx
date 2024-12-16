@@ -8,10 +8,10 @@ import { removeFromCart } from "../state/cart/cartSlice";
 import styled from "styled-components";
 
 const ItemContainer = styled(FlexContainer)`
-    padding: 12px;
+    padding: 0.75rem;
     background-color: #262626;
     color: #ffffff;
-    border-radius: 24px;
+    border-radius: 1.5rem;
     justify-content: space-between;
 `;
 

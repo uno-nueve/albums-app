@@ -16,11 +16,17 @@ export const AvatarContainer = styled.div`
 export const ProfileWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding-bottom: 20px;
+    gap: 1.25rem;
+    padding-bottom: 1.25rem;
     font-size: 1.25rem;
 
     @media (max-width: 768px) {
         padding-bottom: 0;
+    }
+`;
+
+export const ProfileText = styled.p`
+    @media (max-width: 768px) {
+        display: none;
     }
 `;

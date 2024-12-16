@@ -44,19 +44,19 @@ export const AlbumDetails = ({ data, location }) => {
     };
 
     return (
-        <DetailsContainer gap="30px" p="20px">
+        <DetailsContainer gap="1.875rem" p="1.25rem">
             <FlexContainer maxw="420px">
                 <ImageContainer>
                     <AlbumImage src={data?.images[0].url} />
                 </ImageContainer>
             </FlexContainer>
-            <InfoContainer justify="space-between" gap="16px" w="320px" column>
-                <FlexContainer gap="16px" column>
+            <InfoContainer justify="space-between" gap="1rem" w="320px" column>
+                <FlexContainer gap="1rem" column>
                     <h1>{data?.titulo}</h1>
                     <h2>{data?.artista}</h2>
                     <p>{data?.genero}</p>
                 </FlexContainer>
-                <FlexContainer gap="24px" items="center">
+                <FlexContainer gap="1.5rem" items="center">
                     <Pill status={data?.estado}>{data?.estado}</Pill>
                     Stock: {data?.stock}
                 </FlexContainer>

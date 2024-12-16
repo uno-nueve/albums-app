@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AlbumCard } from "../components/common/AlbumCard";
+import { AlbumCard } from "../components/common/AlbumCard/AlbumCard";
 import GridColsWrapper from "../components/ui/GridColWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { indexAlbums } from "../state/albums/albumsSlice";
@@ -12,7 +12,7 @@ import { Button, ButtonContainer } from "../components/ui/Button";
 import { CartContext } from "../contexts/CartContext";
 
 const GridLayout = styled(GridColsWrapper)`
-    gap: 16px;
+    gap: 1rem;
 `;
 
 export const Catalog = () => {
@@ -41,7 +41,7 @@ export const Catalog = () => {
 
     return (
         <>
-            <FlexContainer items="center" justify="space-between" p="0 16px">
+            <FlexContainer items="center" justify="space-between" p="0 1rem">
                 <h1>{location.pathname === "/albums" ? "ALBUMS" : "CATALOGO"}</h1>
                 {location.pathname === "/albums" && (
                     <ButtonContainer w="max-content" h="max-content">

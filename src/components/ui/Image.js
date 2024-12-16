@@ -8,6 +8,6 @@ export const Image = styled.img`
 export const ImageContainer = styled.div`
     width: 100%;
     aspect-ratio: 1 / 1;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     overflow: hidden;
 `;

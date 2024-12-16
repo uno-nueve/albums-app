@@ -29,17 +29,14 @@ export const Returns = () => {
     return (
         <FlexContainer h="calc(100vh - 80px)">
             <GridLayout cols="repeat(2, minmax(0, 1fr))">
-                <FlexContainer gap="20px" p="20px" column>
-                    <FlexContainer p="0 20px">
+                <FlexContainer gap="1.25rem" p="1.25rem" column>
+                    <FlexContainer p="0 1.25rem">
                         <h1>DEVOLUCIONES</h1>
                     </FlexContainer>
                     <Searchbar />
                 </FlexContainer>
                 <ImageCol>
-                    <BgImage
-                        src="https://images.unsplash.com/photo-1645378198905-bca326a21167?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="abstract blob"
-                    />
+                    <BgImage src="/photo-1653669164397-773f4b090677.jpg" alt="abstract blob" />
                 </ImageCol>
             </GridLayout>
         </FlexContainer>
