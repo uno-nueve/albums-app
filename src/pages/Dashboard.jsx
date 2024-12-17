@@ -10,6 +10,7 @@ import { useTitle } from "../hooks/useTitle";
 import { CartContext } from "../contexts/CartContext";
 import { SideNav } from "../components/common/SideNav/SideNav";
 import styled from "styled-components";
+import { NewAlbumForm } from "../components/NewAlbumForm";
 
 const ScrollCol = styled(GridCol)`
     border: none;
@@ -47,7 +48,9 @@ export const Dashboard = () => {
                         <SideNav setShowModal={setShowModal} user={user} location={location} />
                         <ScrollCol>
                             <Outlet />
-                            <Modal />
+                            <Modal>
+                                <NewAlbumForm />
+                            </Modal>
                         </ScrollCol>
                     </GridLayout>
                 </FlexContainer>

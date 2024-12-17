@@ -19,6 +19,7 @@ const DisplayCol = styled(FlexContainer)`
     justify-content: space-between;
     padding: 80px 40px;
     align-items: end;
+    height: calc(100vh - 80px);
 
     @media (max-width: 768px) {
         grid-template-columns: minmax(0, 1fr);

@@ -1,18 +1,17 @@
 import { XClose } from "../../ui/svgs";
-import { NewAlbumForm } from "../../NewAlbumForm";
 import { Button, ButtonContainer, ButtonIcon } from "../../ui/Button";
 import { useContext } from "react";
 import { ModalContext } from "../../../contexts/ModalContext";
 import { FlexContainer } from "../../ui/FlexContainer";
 import { ModalContainer } from "./ModalContainer";
 
-export const Modal = () => {
+export const Modal = ({ children }) => {
     const { showModal, setShowModal } = useContext(ModalContext);
 
     return (
         <ModalContainer showmodal={showModal}>
             <FlexContainer>
-                <NewAlbumForm />
+                {children}
                 <ButtonContainer
                     w="max-content"
                     h="max-content"
