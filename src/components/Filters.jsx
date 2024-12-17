@@ -12,6 +12,7 @@ import { indexAlbums } from "../state/albums/albumsSlice";
 import { ErrorText, Text } from "./ui/Text";
 import { FlexContainer } from "./ui/FlexContainer";
 import { XClose } from "./ui/svgs";
+import { genres } from "../utils/musicGenres";
 
 const FormLayout = styled(FormWrapper)`
     min-width: 100%;
@@ -77,11 +78,11 @@ export const Filters = () => {
                         ) : formData.param === "genero" ? (
                             <Select id="value" name="value" onChange={handleChange}>
                                 <option value="" hidden></option>
-                                <option value="rap">Rap</option>
-                                <option value="rock">Rock</option>
-                                <option value="pop">Pop</option>
-                                <option value="rnb">R&B</option>
-                                <option value="tango">Tango</option>
+                                {genres.map((genre) => (
+                                    <option value={genre} key={genre}>
+                                        {genre}
+                                    </option>
+                                ))}
                             </Select>
                         ) : (
                             <Select id="value" name="value" onChange={handleChange}>

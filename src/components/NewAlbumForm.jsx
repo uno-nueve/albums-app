@@ -11,6 +11,7 @@ import { addAlbum } from "../state/albums/albumsSlice";
 import { useContext } from "react";
 import { ModalContext } from "../contexts/ModalContext";
 import styled from "styled-components";
+import { genres } from "../utils/musicGenres";
 
 const FormLayout = styled(FormWrapper)`
     @media (max-width: 500px) {
@@ -68,11 +69,11 @@ export const NewAlbumForm = () => {
                         Género
                         <Select id="genero" name="genero" onChange={handleChange}>
                             <option value="" hidden></option>
-                            <option value="rap">Rap</option>
-                            <option value="rock">Rock</option>
-                            <option value="pop">Pop</option>
-                            <option value="r&b">R&B</option>
-                            <option value="tango">Tango</option>
+                            {genres.map((genre) => (
+                                <option value={genre} key={genre}>
+                                    {genre}
+                                </option>
+                            ))}
                         </Select>
                     </label>
                     <label htmlFor="stock">
