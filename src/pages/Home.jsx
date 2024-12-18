@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import GridColsWrapper from "../components/ui/GridColWrapper";
-import { Button, ButtonContainer, ButtonIcon } from "../components/ui/Button";
+import { Button, ButtonIcon } from "../components/ui/Button";
 import { Link } from "react-router";
 import { ArrowNarrowRight } from "../components/ui/svgs";
 import { useContext } from "react";
@@ -56,14 +56,12 @@ export const Home = () => {
                         </StyledLink>
                     ) : (
                         <StyledLink to="/albums">
-                            <ButtonContainer>
-                                <Button>
-                                    Comprar
-                                    <ButtonIcon>
-                                        <ArrowNarrowRight />
-                                    </ButtonIcon>
-                                </Button>
-                            </ButtonContainer>
+                            <Button size="1.25rem" maxw="320px  " justify="space-between">
+                                Comprar
+                                <ButtonIcon>
+                                    <ArrowNarrowRight />
+                                </ButtonIcon>
+                            </Button>
                         </StyledLink>
                     )}
                 </DisplayCol>
