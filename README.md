@@ -16,14 +16,18 @@ Aplicación realizada en `React` con `styled-components`, `redux` y `axios`, con
 git clone git@github.com:uno-nueve/viniltory.git
 ```
 
-2. Accede al directorio e instala el proyecto y sus dependencias. Luego inicia el proyecto para poder inspeccionarlo.
+2. Accede al directorio e instala el proyecto y sus dependencias.
 
 ```
 cd viniltory
 npm install
 ```
 
-3. Crea un archivo `.env` y pega las variables de entorno que se encuentran en el archivo entregado en el campus.
+3. Crea un archivo `.env` y pega las variables de entorno que se encuentran en el archivo entregado en el campus. Luego inicia el proyecto para poder inspeccionarlo.
+
+```
+npm run dev
+```
 
 Alternativamente, puedes visitar una versión en vivo de la apliación en [este enlace](https://viniltory.vercel.app/) de Vercel.
 
