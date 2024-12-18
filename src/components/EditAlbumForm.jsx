@@ -105,7 +105,7 @@ export const EditAlbumForm = ({ album }) => {
                         />
                     </label>
                 </InputGroup>
-                <Button onClick={onSubmit}>Añadir</Button>
+                <Button onClick={onSubmit}>Actualizar</Button>
             </FormLayout>
         </>
     );

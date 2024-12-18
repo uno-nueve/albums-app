@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { SALES } from "../utils/urls";
 import { ListItem } from "./ListItem";
 import { useAxios } from "../hooks/useAxios";
+import { FlexContainer } from "./ui/FlexContainer";
+import { BarsScaleFade } from "react-svg-spinners";
 
 export const List = () => {
     const [data, setData] = useState([]);
@@ -17,7 +19,11 @@ export const List = () => {
     }, []);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <FlexContainer w="100%" h="100%" items="center" justify="center">
+                <BarsScaleFade width={"4rem"} height={"auto"} />
+            </FlexContainer>
+        );
     }
 
     if (error) {

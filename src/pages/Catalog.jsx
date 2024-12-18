@@ -10,6 +10,7 @@ import { useAxios } from "../hooks/useAxios";
 import { FlexContainer } from "../components/ui/FlexContainer";
 import { Button, ButtonContainer } from "../components/ui/Button";
 import { CartContext } from "../contexts/CartContext";
+import { BarsScaleFade } from "react-svg-spinners";
 
 const GridLayout = styled(GridColsWrapper)`
     gap: 1rem;
@@ -32,7 +33,11 @@ export const Catalog = () => {
     }, []);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <FlexContainer w="100%" h="100%" items="center" justify="center">
+                <BarsScaleFade width={"4rem"} height={"auto"} />
+            </FlexContainer>
+        );
     }
 
     if (error) {

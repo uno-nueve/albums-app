@@ -9,6 +9,7 @@ import { FlexContainer } from "./ui/FlexContainer";
 import { useState } from "react";
 import { useTitle } from "../hooks/useTitle";
 import { Toast } from "./Toast";
+import { ThreeDotsFade } from "react-svg-spinners";
 
 export const CheckoutForm = () => {
     const [response, setResponse] = useState(null);
@@ -51,7 +52,11 @@ export const CheckoutForm = () => {
                     <Button onClick={(e) => handleSubmit(e)}>Pagar</Button>
                 </FlexContainer>
             </FormWrapper>
-            {isLoading && <div>Loading...</div>}
+            {isLoading && (
+                <FlexContainer justify="center">
+                    <ThreeDotsFade color="var(--light)" width={"2rem"} height={"auto"} />
+                </FlexContainer>
+            )}
             {response &&
                 response?.map(({ venta, album }) => (
                     <Toast venta={venta} album={album} key={venta?._id} />

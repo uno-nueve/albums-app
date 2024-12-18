@@ -11,6 +11,7 @@ import { Modal } from "../components/common/Modal/Modal";
 import { EditAlbumForm } from "../components/EditAlbumForm";
 import { useDispatch, useSelector } from "react-redux";
 import { setAlbum } from "../state/albums/albumDetailsSlice";
+import { BarsScaleFade } from "react-svg-spinners";
 
 export const Details = () => {
     const [showModal, setShowModal] = useState(false);
@@ -31,7 +32,11 @@ export const Details = () => {
     }, []);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <FlexContainer w="100%" h="100%" items="center" justify="center">
+                <BarsScaleFade width={"4rem"} height={"auto"} />
+            </FlexContainer>
+        );
     }
 
     return (

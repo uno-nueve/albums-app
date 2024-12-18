@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../state/orders/ordersSlice";
 import { ListItem } from "../ListItem";
 import { FlexContainer } from "../ui/FlexContainer";
+import { ThreeDotsFade } from "react-svg-spinners";
 
 const InlineButton = styled(Button)`
     max-width: max-content;
@@ -61,7 +62,13 @@ export const Searchbar = () => {
                     </ButtonIcon>
                 </InlineButton>
             </FlexContainer>
-            {isLoading ? <div>Loading...</div> : data !== null && <ListItem order={data} />}
+            {isLoading ? (
+                <FlexContainer justify="center">
+                    <ThreeDotsFade color="var(--light)" width={"2rem"} height={"auto"} />
+                </FlexContainer>
+            ) : (
+                data !== null && <ListItem order={data} />
+            )}
         </FlexContainer>
     );
 };
