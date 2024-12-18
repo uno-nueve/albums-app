@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import albumsReducer from "./albums/albumsSlice";
 import cartReducer from "./cart/cartSlice";
 import ordersReducer from "./orders/ordersSlice";
+import detailsReducer from "./albums/albumDetailsSlice";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
@@ -20,6 +21,7 @@ export const store = configureStore({
         albums: albumsReducer,
         cart: persistedReducer,
         orders: ordersReducer,
+        details: detailsReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

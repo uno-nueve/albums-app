@@ -9,18 +9,21 @@ import { CartContext } from "../contexts/CartContext";
 import { ModalContext } from "../contexts/ModalContext";
 import { Modal } from "../components/common/Modal/Modal";
 import { EditAlbumForm } from "../components/EditAlbumForm";
+import { useDispatch, useSelector } from "react-redux";
+import { setAlbum } from "../state/albums/albumDetailsSlice";
 
 export const Details = () => {
-    const [data, setData] = useState();
     const [showModal, setShowModal] = useState(false);
     const location = useLocation();
     const params = useParams();
     const { handleGet, isLoading } = useAxios();
-    console.log(data?.images);
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.details);
+    console.log(data);
 
     const getAlbum = async () => {
         const res = await handleGet(`${ALBUMS}/${params.id}`);
-        setData(res);
+        dispatch(setAlbum(res));
     };
 
     useEffect(() => {

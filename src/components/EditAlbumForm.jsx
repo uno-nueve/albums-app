@@ -6,12 +6,12 @@ import { useContext } from "react";
 import { ModalContext } from "../contexts/ModalContext";
 import { useDispatch } from "react-redux";
 import { ALBUMS } from "../utils/urls";
-import { addAlbum } from "../state/albums/albumsSlice";
 import InputGroup from "./ui/InputGroup";
 import Input from "./ui/Input";
 import Select from "./ui/Select";
 import { genres } from "../utils/musicGenres";
 import { Button } from "./ui/Button";
+import { setAlbum } from "../state/albums/albumDetailsSlice";
 
 const FormLayout = styled(FormWrapper)`
     @media (max-width: 500px) {
@@ -28,19 +28,19 @@ export const EditAlbumForm = ({ album }) => {
         artista: album?.artista,
         genero: album?.genero,
         stock: album?.stock,
+        estado: album?.estado,
         images: album?.images,
     };
 
     const { formData, handleChange, setFormData } = useForm(initialForm);
     const { handlePut, error } = useAxios();
     const { setShowModal } = useContext(ModalContext);
-
     const dispatch = useDispatch();
 
     const onSubmit = async (e) => {
         e.preventDefault();
         await handlePut(`${ALBUMS}/${album._id}`, formData);
-        dispatch(addAlbum(formData));
+        dispatch(setAlbum(formData));
         setTimeout(() => setShowModal(false), 300);
         setFormData(initialForm);
     };

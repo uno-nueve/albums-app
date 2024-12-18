@@ -16,3 +16,12 @@ export const ErrorText = styled.p`
     color: red;
     width: 100%;
 `;
+
+export const Heading1 = styled.h1`
+    font-size: 3rem;
+`;
+
+export const Heading2 = styled.h2`
+    font-size: 1.5rem;
+    font-weight: 400;
+`;
