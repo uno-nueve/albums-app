@@ -46,12 +46,14 @@ export const Dashboard = () => {
                 <FlexContainer h="calc(100vh - 80px)">
                     <GridLayout cols="1fr 3fr">
                         <SideNav setShowModal={setShowModal} user={user} location={location} />
-                        <ScrollCol>
-                            <Outlet />
+                        <FlexContainer>
+                            <ScrollCol>
+                                <Outlet />
+                            </ScrollCol>
                             <Modal>
                                 <NewAlbumForm />
                             </Modal>
-                        </ScrollCol>
+                        </FlexContainer>
                     </GridLayout>
                 </FlexContainer>
             </CartContext.Provider>

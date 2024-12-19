@@ -12,6 +12,8 @@ import { useContext } from "react";
 import { ModalContext } from "../contexts/ModalContext";
 import styled from "styled-components";
 import { genres } from "../utils/musicGenres";
+import { ErrorToast } from "./Toast";
+import { ThreeDotsFade } from "react-svg-spinners";
 
 const FormLayout = styled(FormWrapper)`
     @media (max-width: 500px) {
@@ -38,7 +40,7 @@ export const NewAlbumForm = () => {
     };
 
     const { formData, handleChange, setFormData } = useForm(initialForm);
-    const { handlePost, error } = useAxios();
+    const { handlePost, error, isLoading } = useAxios();
     const { setShowModal } = useContext(ModalContext);
 
     const dispatch = useDispatch();
@@ -47,27 +49,42 @@ export const NewAlbumForm = () => {
         e.preventDefault();
         await handlePost(`${ALBUMS}`, formData);
         dispatch(addAlbum(formData));
-        setTimeout(() => setShowModal(false), 300);
         setFormData(initialForm);
+        setTimeout(() => setShowModal(false), 300);
     };
 
     return (
         <>
             <FormLayout>
                 <h3>Nuevo Album</h3>
-                {error && <p>{error}</p>}
+                {error && <ErrorToast>{error}</ErrorToast>}
                 <InputGroup>
                     <label htmlFor="titulo">
                         Título
-                        <Input id="titulo" name="titulo" onChange={handleChange} />
+                        <Input
+                            id="titulo"
+                            name="titulo"
+                            onChange={handleChange}
+                            value={formData?.titulo}
+                        />
                     </label>
                     <label htmlFor="artista">
                         Artista
-                        <Input id="artista" name="artista" onChange={handleChange} />
+                        <Input
+                            id="artista"
+                            name="artista"
+                            onChange={handleChange}
+                            value={formData?.artista}
+                        />
                     </label>
                     <label htmlFor="genero">
                         Género
-                        <Select id="genero" name="genero" onChange={handleChange}>
+                        <Select
+                            id="genero"
+                            name="genero"
+                            onChange={handleChange}
+                            value={formData?.genero}
+                        >
                             <option value="" hidden></option>
                             {genres.map((genre) => (
                                 <option value={genre} key={genre}>
@@ -78,14 +95,25 @@ export const NewAlbumForm = () => {
                     </label>
                     <label htmlFor="stock">
                         Stock
-                        <Input id="stock" name="stock" type="number" onChange={handleChange} />
+                        <Input
+                            id="stock"
+                            name="stock"
+                            type="number"
+                            onChange={handleChange}
+                            value={formData?.stock}
+                        />
                     </label>
                     <label htmlFor="url">
                         URL Imagen
-                        <Input id="url" name="url" onChange={handleChange} />
+                        <Input
+                            id="url"
+                            name="url"
+                            onChange={handleChange}
+                            value={formData?.images[0]?.url}
+                        />
                     </label>
                 </InputGroup>
-                <Button onClick={onSubmit}>Añadir</Button>
+                <Button onClick={onSubmit}>{isLoading ? <ThreeDotsFade /> : "Añadir"}</Button>
             </FormLayout>
         </>
     );

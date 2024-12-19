@@ -12,6 +12,8 @@ import Select from "./ui/Select";
 import { genres } from "../utils/musicGenres";
 import { Button } from "./ui/Button";
 import { setAlbum } from "../state/albums/albumDetailsSlice";
+import { ErrorToast } from "./Toast";
+import { ThreeDotsFade } from "react-svg-spinners";
 
 const FormLayout = styled(FormWrapper)`
     @media (max-width: 500px) {
@@ -33,7 +35,7 @@ export const EditAlbumForm = ({ album }) => {
     };
 
     const { formData, handleChange, setFormData } = useForm(initialForm);
-    const { handlePut, error } = useAxios();
+    const { handlePut, error, isLoading } = useAxios();
     const { setShowModal } = useContext(ModalContext);
     const dispatch = useDispatch();
 
@@ -49,7 +51,7 @@ export const EditAlbumForm = ({ album }) => {
         <>
             <FormLayout>
                 <h3>Nuevo Album</h3>
-                {error && <p>{error}</p>}
+                {error && <ErrorToast>{error}</ErrorToast>}
                 <InputGroup>
                     <label htmlFor="titulo">
                         Título
@@ -105,7 +107,7 @@ export const EditAlbumForm = ({ album }) => {
                         />
                     </label>
                 </InputGroup>
-                <Button onClick={onSubmit}>Actualizar</Button>
+                <Button onClick={onSubmit}>{isLoading ? <ThreeDotsFade /> : "Añadir"}</Button>
             </FormLayout>
         </>
     );
